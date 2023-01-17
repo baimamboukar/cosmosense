@@ -36,7 +36,6 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  google_fonts: ^3.0.1
   dio: ^4.0.6
   hive: ^2.2.3
   hive_flutter: ^1.1.0
@@ -47,6 +46,7 @@ dependencies:
   auto_route: ^5.0.4
   line_icons: ^2.0.1
   animations: ^2.0.7
+  google_fonts: ^3.0.1
 
 dev_dependencies:
   flutter_test:
@@ -99,6 +99,11 @@ fonts:
   - family: SpaceSpeed
     fonts:
       - asset: assets/fonts/spacespeed.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  - family: Exo
+    fonts:
+      - asset: assets/fonts/exo.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
