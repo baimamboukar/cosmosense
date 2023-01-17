@@ -5,7 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   useMaterial3: true,
-  textTheme: GoogleFonts.exo2TextTheme(),
+  textTheme: GoogleFonts.poppinsTextTheme(
+    const TextTheme()
+        .apply(bodyColor: Palette.white, displayColor: Palette.white),
+  ),
   typography: Typography.material2021(),
   visualDensity: VisualDensity.adaptivePlatformDensity,
   primarySwatch: const MaterialColor(0xFF143887, {
