@@ -6,7 +6,6 @@ import 'package:cosmosense/src/utils/theme/dark_theme.dart';
 import 'package:cosmosense/src/utils/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icons.dart';
 
 Future<void> main() async {
@@ -36,12 +35,7 @@ class _CosmoSenseState extends ConsumerState<CosmoSense> {
       restorationScopeId: "cosmosense",
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
-      darkTheme: darkTheme.copyWith(
-        textTheme: GoogleFonts.exoTextTheme(
-          const TextTheme()
-              .apply(bodyColor: Palette.white, displayColor: Palette.white),
-        ),
-      ),
+      darkTheme: darkTheme,
       themeMode: ThemeMode.light,
     );
   }
