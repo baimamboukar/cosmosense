@@ -43,9 +43,7 @@ class InfoBox extends StatelessWidget {
                 Text(
                   data,
                   style: TextStyle(
-                      fontSize: 14,
-                      fontFamily: "SpaceSpeed",
-                      color: Palette.white),
+                      fontSize: 14, fontFamily: "exo", color: Palette.white),
                 ),
               ],
             ),
