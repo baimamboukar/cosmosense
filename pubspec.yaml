@@ -47,6 +47,8 @@ dependencies:
   line_icons: ^2.0.1
   animations: ^2.0.7
   google_fonts: ^3.0.1
+  cached_network_image: ^3.2.3
+  scroll_snap_list: ^0.9.1
 
 dev_dependencies:
   flutter_test:
@@ -93,12 +95,12 @@ flutter:
 fonts:
   - family: Varino
     fonts:
-      - asset: assets/fonts/varino.ttf
+      - asset: assets/fonts/varino.otf
 #       - asset: fonts/Schyler-Italic.ttf
 #         style: italic
   - family: SpaceSpeed
     fonts:
-      - asset: assets/fonts/spacespeed.ttf
+      - asset: assets/fonts/daesang.otf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   - family: Exo
