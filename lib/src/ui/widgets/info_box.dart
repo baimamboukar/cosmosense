@@ -17,14 +17,14 @@ class InfoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(2.0),
       child: Card(
         elevation: 10,
         shape:
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(24.0)),
         child: Container(
           height: 80,
-          width: 85,
+          width: 100,
           decoration: BoxDecoration(
               color: Palette.black, borderRadius: BorderRadius.circular(24.0)),
           child: Padding(
@@ -38,12 +38,12 @@ class InfoBox extends StatelessWidget {
                   style: TextStyle(
                       fontFamily: "Varino",
                       color: Palette.secondary,
-                      fontSize: 9),
+                      fontSize: 11),
                 ),
                 Text(
                   data,
                   style: TextStyle(
-                      fontSize: 14, fontFamily: "exo", color: Palette.white),
+                      fontSize: 14, fontFamily: "Exo", color: Palette.white),
                 ),
               ],
             ),
