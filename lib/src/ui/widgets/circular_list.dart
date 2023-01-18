@@ -56,8 +56,8 @@ class _CircularListPageState extends State<CircularListPage> {
       physics: const wheel.CircleFixedExtentScrollPhysics(),
       controller: _controller,
       axis: Axis.vertical,
-      itemExtent: 135,
-      radius: MediaQuery.of(context).size.width * 0.65,
+      itemExtent: 100,
+      radius: MediaQuery.of(context).size.width * .5,
     );
   }
 }
