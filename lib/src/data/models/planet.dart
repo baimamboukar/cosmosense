@@ -17,26 +17,26 @@ final planets = [
       history: "Lorem ipusm dolor si amet"),
   Planet(
       image: "assets/images/planetblue.png",
-      name: "VEUS",
+      name: "VENUS",
       history: "Lorem ipusm dolor si amet"),
   Planet(
       image: "assets/images/moon.jpg",
       name: "MOON",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/mercury.jpg",
-      name: "MERCURY",
+      image: "assets/images/mercury.png",
+      name: "CURY",
       history: "Lorem ipusm dolor si amet"),
   Planet(
       image: "assets/images/planetblue.png",
-      name: "VEUS",
+      name: "VENUS",
       history: "Lorem ipusm dolor si amet"),
   Planet(
       image: "assets/images/moon.jpg",
       name: "MOON",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/mercury.jpg",
-      name: "MERCURY",
+      image: "assets/images/mercury.png",
+      name: "CURY",
       history: "Lorem ipusm dolor si amet"),
 ];
