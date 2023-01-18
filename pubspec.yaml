@@ -49,6 +49,10 @@ dependencies:
   google_fonts: ^3.0.1
   cached_network_image: ^3.2.3
   scroll_snap_list: ^0.9.1
+  circle_wheel_scroll:
+    git: 
+      url: https://github.com/KolasikOmetov/circle_wheel_scroll
+      ref: null_safety_and_endless_scrolling
 
 dev_dependencies:
   flutter_test:
