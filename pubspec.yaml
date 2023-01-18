@@ -45,7 +45,6 @@ dependencies:
   lottie: ^2.2.0
   auto_route: ^5.0.4
   line_icons: ^2.0.1
-  animations: ^2.0.7
   google_fonts: ^3.0.1
   cached_network_image: ^3.2.3
   scroll_snap_list: ^0.9.1
@@ -53,6 +52,8 @@ dependencies:
     git: 
       url: https://github.com/KolasikOmetov/circle_wheel_scroll
       ref: null_safety_and_endless_scrolling
+  animations: ^2.0.7
+  animate_do: ^3.0.2
 
 dev_dependencies:
   flutter_test:
