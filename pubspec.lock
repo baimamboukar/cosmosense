@@ -155,6 +155,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  circle_wheel_scroll:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: null_safety_and_endless_scrolling
+      resolved-ref: c22e01667a1bd952573d5cae087f6404ea69face
+      url: "https://github.com/KolasikOmetov/circle_wheel_scroll"
+    source: git
+    version: "0.0.1"
   clock:
     dependency: transitive
     description:
