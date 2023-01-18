@@ -28,9 +28,10 @@ class Cosmos extends ConsumerWidget {
               Text(
                 'HUMANS PLANET',
                 style: TextStyle(
-                    fontSize: 22,
-                    color: Palette.secondary,
-                    fontFamily: 'Varino'),
+                  fontSize: 22,
+                  color: Palette.secondary,
+                  fontFamily: "Daesang",
+                ),
               ),
               Expanded(
                 child: SingleChildScrollView(
@@ -49,9 +50,9 @@ class Cosmos extends ConsumerWidget {
                             top: -50,
                             right: 0,
                             child: Image.asset(
-                              "assets/images/moon.jpg",
-                              height: 150,
-                              width: 150,
+                              "assets/images/planetblue.png",
+                              height: 180,
+                              width: 180,
                             ),
                           ),
                           Padding(
@@ -90,7 +91,7 @@ class Cosmos extends ConsumerWidget {
                                     "This is a planet where humans live in harmony, before Elon musk decide to conquer MARS and chatGPT release. Before then, this planet was calm and peaceful.... But the tune has changed!",
                                     style: Styles.decorateText(
                                         color: Palette.white,
-                                        size: 14,
+                                        size: 18,
                                         bold: false),
                                   ),
                                   const SizedBox(
