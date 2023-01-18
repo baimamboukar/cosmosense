@@ -27,4 +27,16 @@ final planets = [
       image: "assets/images/mercury.jpg",
       name: "MERCURY",
       history: "Lorem ipusm dolor si amet"),
+  Planet(
+      image: "assets/images/planetblue.png",
+      name: "VEUS",
+      history: "Lorem ipusm dolor si amet"),
+  Planet(
+      image: "assets/images/moon.jpg",
+      name: "MOON",
+      history: "Lorem ipusm dolor si amet"),
+  Planet(
+      image: "assets/images/mercury.jpg",
+      name: "MERCURY",
+      history: "Lorem ipusm dolor si amet"),
 ];
