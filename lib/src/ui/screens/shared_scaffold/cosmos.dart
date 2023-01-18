@@ -1,3 +1,4 @@
+import 'package:animate_do/animate_do.dart';
 import 'package:cosmosense/src/data/models/planet.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
@@ -139,10 +140,13 @@ class PlanetView extends StatelessWidget {
                 Positioned(
                   top: -50,
                   right: 0,
-                  child: Image.asset(
-                    "assets/images/planetblue.png",
-                    height: 180,
-                    width: 180,
+                  child: ZoomIn(
+                    duration: const Duration(seconds: 4),
+                    child: Image.asset(
+                      "assets/images/planetred.png",
+                      height: 180,
+                      width: 180,
+                    ),
                   ),
                 ),
                 Padding(
