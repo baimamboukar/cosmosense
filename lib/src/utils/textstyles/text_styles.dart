@@ -9,7 +9,6 @@ class Styles {
           {required Color color, required bool bold, required double size}) =>
       TextStyle(
           color: color,
-          fontFamily: "Exo",
           fontWeight: bold ? FontWeight.bold : FontWeight.normal,
           fontSize: size);
 }
