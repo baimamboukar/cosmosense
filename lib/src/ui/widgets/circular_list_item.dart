@@ -20,7 +20,7 @@ class CircleListItem extends StatelessWidget {
             character.name,
             style: TextStyle(
               color: Palette.secondary,
-              fontSize: 20 * resizeFactor,
+              fontSize: 16 * resizeFactor,
               fontFamily: "Varino",
             ),
           ),
