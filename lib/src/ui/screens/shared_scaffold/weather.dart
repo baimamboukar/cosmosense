@@ -5,84 +5,105 @@ import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+final colorListener = ValueNotifier<Color>(Palette.mars);
+final planetNameListener = ValueNotifier<String>("MARS");
+
 class Weather extends ConsumerWidget {
   const Weather({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Column(
-      children: [
-        Container(
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(0),
-            ),
-            height: 300,
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 60.0, left: 10),
-                      child: RotatedBox(
-                        quarterTurns: 1,
-                        child: Text(
-                          "MERCURY",
-                          style: Styles.title()
-                              .copyWith(fontFamily: "Daesang", fontSize: 30),
-                        ),
-                      ),
-                    ),
+    return ValueListenableBuilder(
+      valueListenable: colorListener,
+      builder: (context, color, widget) => Column(
+        children: [
+          Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    color,
+                    color.withOpacity(.55),
+                    color.withOpacity(.2),
                   ],
                 ),
-              ],
-            )),
-        Expanded(
-          child: Row(
-            children: [
-              const Expanded(child: CircularListPage()),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.circular(0),
-                ),
-                height: MediaQuery.of(context).size.height,
-                width: 130,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                borderRadius: BorderRadius.circular(0),
+              ),
+              height: 300,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      WeatherInfoBox(
-                        index: 1,
-                        data: '-145°F',
-                        label: 'Temperature',
-                        iconPath: 'assets/images/uvindex.png',
-                        color: Palette.secondary,
-                      ),
-                      WeatherInfoBox(
-                        index: 2,
-                        data: '200Pa',
-                        label: 'Pressure',
-                        iconPath: 'assets/images/pressure.png',
-                        color: Palette.primary,
-                      ),
-                      WeatherInfoBox(
-                        index: 3,
-                        data: '200ml',
-                        label: 'Humidity',
-                        iconPath: 'assets/images/humidity.png',
-                        color: Palette.grey,
+                      Padding(
+                        padding: const EdgeInsets.only(top: 60.0, left: 10),
+                        child: RotatedBox(
+                          quarterTurns: 1,
+                          child: ValueListenableBuilder(
+                            valueListenable: planetNameListener,
+                            builder: (context, planet, widget) => Text(
+                              planet,
+                              style: Styles.title().copyWith(
+                                  fontFamily: "Daesang",
+                                  fontSize: 30,
+                                  color: Palette.white),
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
+                ],
+              )),
+          Expanded(
+            child: Row(
+              children: [
+                const Expanded(
+                  child: CircularListPage(),
                 ),
-              ),
-            ],
+                Container(
+                  decoration: BoxDecoration(
+                    color: color.withOpacity(.25),
+                    borderRadius: BorderRadius.circular(0),
+                  ),
+                  height: MediaQuery.of(context).size.height,
+                  width: 130,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        WeatherInfoBox(
+                          index: 1,
+                          data: '-145°F',
+                          label: 'Temperature',
+                          iconPath: 'assets/images/uvindex.png',
+                          color: Palette.secondary,
+                        ),
+                        WeatherInfoBox(
+                          index: 2,
+                          data: '200Pa',
+                          label: 'Pressure',
+                          iconPath: 'assets/images/pressure.png',
+                          color: Palette.primary,
+                        ),
+                        WeatherInfoBox(
+                          index: 3,
+                          data: '200ml',
+                          label: 'Humidity',
+                          iconPath: 'assets/images/humidity.png',
+                          color: Palette.grey,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
