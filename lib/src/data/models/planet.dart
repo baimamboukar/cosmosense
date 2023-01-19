@@ -8,19 +8,23 @@ class Planet {
 
 final planets = [
   Planet(
-      image: "assets/images/planetred.png",
+      image: "assets/images/mars.png",
       name: "MARS",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/planetgreen.png",
+      image: "assets/images/jupiter.png",
+      name: "JUPITER",
+      history: "Lorem ipusm dolor si amet"),
+  Planet(
+      image: "assets/images/earth.png",
       name: "EARTH",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/planetblue.png",
+      image: "assets/images/venus.png",
       name: "VENUS",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/moon.jpg",
+      image: "assets/images/earth_moon.png",
       name: "MOON",
       history: "Lorem ipusm dolor si amet"),
   Planet(
@@ -28,15 +32,15 @@ final planets = [
       name: "CURY",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/planetblue.png",
-      name: "VENUS",
+      image: "assets/images/uranus.png",
+      name: "URANUS",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/moon.jpg",
-      name: "MOON",
+      image: "assets/images/neptune.png",
+      name: "NEPTUNE",
       history: "Lorem ipusm dolor si amet"),
   Planet(
-      image: "assets/images/mercury.png",
-      name: "CURY",
+      image: "assets/images/saturn.png",
+      name: "SATURN",
       history: "Lorem ipusm dolor si amet"),
 ];
