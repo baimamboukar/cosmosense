@@ -14,8 +14,6 @@ class Cosmos extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final activePlanetIndex =
-        ref.watch(activePlanetIndexRiverpod.notifier).state;
     final controller = PageController();
     final listcontroller = ScrollController();
     return SafeArea(
@@ -24,7 +22,7 @@ class Cosmos extends ConsumerWidget {
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage("assets/images/background.jpg"),
-              fit: BoxFit.contain,
+              fit: BoxFit.fill,
             ),
           ),
           child: Column(
@@ -52,17 +50,34 @@ class Cosmos extends ConsumerWidget {
                       curve: Curves.easeInOut,
                     );
                   },
-                  children: const [
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
-                    PlanetView(),
+                  children: [
+                    PlanetView(
+                      planet: planets[0],
+                    ),
+                    PlanetView(
+                      planet: planets[1],
+                    ),
+                    PlanetView(
+                      planet: planets[2],
+                    ),
+                    PlanetView(
+                      planet: planets[3],
+                    ),
+                    PlanetView(
+                      planet: planets[4],
+                    ),
+                    PlanetView(
+                      planet: planets[5],
+                    ),
+                    PlanetView(
+                      planet: planets[6],
+                    ),
+                    PlanetView(
+                      planet: planets[7],
+                    ),
+                    PlanetView(
+                      planet: planets[8],
+                    ),
                   ],
                 ),
               ),
@@ -117,8 +132,10 @@ class Cosmos extends ConsumerWidget {
 }
 
 class PlanetView extends StatelessWidget {
+  final Planet planet;
   const PlanetView({
     Key? key,
+    required this.planet,
   }) : super(key: key);
 
   @override
@@ -143,7 +160,7 @@ class PlanetView extends StatelessWidget {
                   child: ZoomIn(
                     duration: const Duration(seconds: 4),
                     child: Image.asset(
-                      "assets/images/planetred.png",
+                      planet.image,
                       height: 180,
                       width: 180,
                     ),
@@ -171,16 +188,16 @@ class PlanetView extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          "EARTH",
+                          planet.name,
                           style: Styles.title().copyWith(fontSize: 32),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 40,
                         ),
                         Text(
-                          "This is a planet where humans live in harmony, before Elon musk decide to conquer MARS and chatGPT release. Before then, this planet was calm and peaceful.... But the tune has changed!",
+                          planet.history,
                           style: Styles.decorateText(
-                              color: Palette.white, size: 18, bold: false),
+                              color: Palette.white, size: 14, bold: false),
                         ),
                         const SizedBox(
                           height: 14,
