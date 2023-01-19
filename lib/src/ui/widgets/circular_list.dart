@@ -1,4 +1,5 @@
 import 'package:cosmosense/src/data/models/planet.dart';
+import 'package:cosmosense/src/ui/screens/screens.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -34,30 +35,35 @@ class _CircularListPageState extends State<CircularListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return wheel.CircleListScrollView.useDelegate(
-      onSelectedItemChanged: (index) {
-        setState(() {});
-      },
-      childDelegate: wheel.CircleListChildBuilderDelegate(
-        builder: (context, index) {
-          int currentIndex = 0;
-          try {
-            currentIndex = _controller.selectedItem;
-          } catch (_) {}
-          final num resizeFactor =
-              (1 - (((currentIndex - index).abs() * 0.3).clamp(0.0, 1.0)));
-          return CircleListItem(
-            resizeFactor: resizeFactor as double,
-            character: planets[index],
-          );
+    return Container(
+      color: colorListener.value.withOpacity(.25),
+      child: wheel.CircleListScrollView.useDelegate(
+        onSelectedItemChanged: (index) {
+          colorListener.value = planets[index].color;
+          planetNameListener.value = planets[index].name;
+          setState(() {});
         },
-        childCount: planets.length,
+        childDelegate: wheel.CircleListChildBuilderDelegate(
+          builder: (context, index) {
+            int currentIndex = 0;
+            try {
+              currentIndex = _controller.selectedItem;
+            } catch (_) {}
+            final num resizeFactor =
+                (1 - (((currentIndex - index).abs() * 0.3).clamp(0.0, 1.0)));
+            return CircleListItem(
+              resizeFactor: resizeFactor as double,
+              character: planets[index],
+            );
+          },
+          childCount: planets.length,
+        ),
+        physics: const wheel.CircleFixedExtentScrollPhysics(),
+        controller: _controller,
+        axis: Axis.vertical,
+        itemExtent: 100,
+        radius: MediaQuery.of(context).size.width * .5,
       ),
-      physics: const wheel.CircleFixedExtentScrollPhysics(),
-      controller: _controller,
-      axis: Axis.vertical,
-      itemExtent: 100,
-      radius: MediaQuery.of(context).size.width * .5,
     );
   }
 }
