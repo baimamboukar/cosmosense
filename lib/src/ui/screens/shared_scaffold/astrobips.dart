@@ -5,6 +5,7 @@ import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NasaImage extends ConsumerWidget {
   const NasaImage({super.key});
@@ -131,9 +132,10 @@ class NasaImage extends ConsumerWidget {
                   children: [
                     Text(
                       apodData.copyright ?? "",
-                      style: const TextStyle(
-                        fontSize: 22,
+                      style: GoogleFonts.tangerine(
+                        fontSize: 32,
                         fontWeight: FontWeight.bold,
+                        color: Palette.secondary,
                       ),
                     ),
                   ],
