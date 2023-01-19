@@ -1,0 +1,16 @@
+{
+    "name": "Mars",
+    "type": "Planet",
+    "averagedistancefromthesun": 227.9,
+    "radius": 3396.19,
+    "diameter": 6794.4,
+    "mass": 6.4185e23,
+    "rotationperiod": 24.6229,
+    "daylength": 24.6229,
+    "orbittime": 686.98, 
+    "axialtilt": 25.2, 
+ "averagetemperature": "-55˚C to 27˚C", 
+ "gravity": "3.711 m/s²" ,                
+ "surfacepressure" :"0.006 kPa to 0.007 kPa" 
+
+}
