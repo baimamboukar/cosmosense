@@ -31,7 +31,7 @@ class NasaImage extends ConsumerWidget {
                       quarterTurns: 3,
                       child: Text(
                         "NASA APOD",
-                        style: Styles.title(),
+                        style: Styles.title().copyWith(fontFamily: "Daesang"),
                       ),
                     ),
                     Expanded(
@@ -50,7 +50,7 @@ class NasaImage extends ConsumerWidget {
                 Text(
                   apodData.title ?? "",
                   style: TextStyle(
-                      fontFamily: "Daesang",
+                      fontFamily: "Varino",
                       color: Palette.secondary,
                       fontSize: 22),
                 ),
