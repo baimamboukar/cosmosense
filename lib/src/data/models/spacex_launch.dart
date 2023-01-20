@@ -2,70 +2,54 @@ class SpaceXlaunch {
   final Fairings? fairings;
   final Links? links;
   final String? staticFireDateUtc;
-  final int? staticFireDateUnix;
   final String? rocket;
   final bool? success;
   final List<Failures>? failures;
   final String? details;
-  final List<String>? payloads;
   final String? launchpad;
   final int? flightNumber;
   final String? name;
   final String? dateLocal;
   final bool? upcoming;
-  final List<Cores>? cores;
-  final bool? autoUpdate;
   const SpaceXlaunch(
       {this.fairings,
       this.links,
       this.staticFireDateUtc,
-      this.staticFireDateUnix,
       this.rocket,
       this.success,
       this.failures,
       this.details,
-      this.payloads,
       this.launchpad,
       this.flightNumber,
       this.name,
       this.dateLocal,
-      this.upcoming,
-      this.cores,
-      this.autoUpdate});
+      this.upcoming});
   SpaceXlaunch copyWith(
       {Fairings? fairings,
       Links? links,
       String? staticFireDateUtc,
-      int? staticFireDateUnix,
       String? rocket,
       bool? success,
       List<Failures>? failures,
       String? details,
-      List<String>? payloads,
       String? launchpad,
       int? flightNumber,
       String? name,
       String? dateLocal,
-      bool? upcoming,
-      List<Cores>? cores,
-      bool? autoUpdate}) {
+      bool? upcoming}) {
     return SpaceXlaunch(
         fairings: fairings ?? this.fairings,
         links: links ?? this.links,
         staticFireDateUtc: staticFireDateUtc ?? this.staticFireDateUtc,
-        staticFireDateUnix: staticFireDateUnix ?? this.staticFireDateUnix,
         rocket: rocket ?? this.rocket,
         success: success ?? this.success,
         failures: failures ?? this.failures,
         details: details ?? this.details,
-        payloads: payloads ?? this.payloads,
         launchpad: launchpad ?? this.launchpad,
         flightNumber: flightNumber ?? this.flightNumber,
         name: name ?? this.name,
         dateLocal: dateLocal ?? this.dateLocal,
-        upcoming: upcoming ?? this.upcoming,
-        cores: cores ?? this.cores,
-        autoUpdate: autoUpdate ?? this.autoUpdate);
+        upcoming: upcoming ?? this.upcoming);
   }
 
   Map<String, Object?> toJson() {
@@ -73,21 +57,16 @@ class SpaceXlaunch {
       'fairings': fairings?.toJson(),
       'links': links?.toJson(),
       'staticFireDateUtc': staticFireDateUtc,
-      'staticFireDateUnix': staticFireDateUnix,
       'rocket': rocket,
       'success': success,
       'failures':
           failures?.map<Map<String, dynamic>>((data) => data.toJson()).toList(),
       'details': details,
-      'payloads': payloads,
       'launchpad': launchpad,
       'flightNumber': flightNumber,
       'name': name,
       'dateLocal': dateLocal,
-      'upcoming': upcoming,
-      'cores':
-          cores?.map<Map<String, dynamic>>((data) => data.toJson()).toList(),
-      'autoUpdate': autoUpdate
+      'upcoming': upcoming
     };
   }
 
@@ -102,9 +81,6 @@ class SpaceXlaunch {
         staticFireDateUtc: json['staticFireDateUtc'] == null
             ? null
             : json['staticFireDateUtc'] as String,
-        staticFireDateUnix: json['staticFireDateUnix'] == null
-            ? null
-            : json['staticFireDateUnix'] as int,
         rocket: json['rocket'] == null ? null : json['rocket'] as String,
         success: json['success'] == null ? null : json['success'] as bool,
         failures: json['failures'] == null
@@ -114,8 +90,6 @@ class SpaceXlaunch {
                     (data) => Failures.fromJson(data as Map<String, Object?>))
                 .toList(),
         details: json['details'] == null ? null : json['details'] as String,
-        payloads:
-            json['payloads'] == null ? null : json['payloads'] as List<String>,
         launchpad:
             json['launchpad'] == null ? null : json['launchpad'] as String,
         flightNumber:
@@ -123,15 +97,7 @@ class SpaceXlaunch {
         name: json['name'] == null ? null : json['name'] as String,
         dateLocal:
             json['dateLocal'] == null ? null : json['dateLocal'] as String,
-        upcoming: json['upcoming'] == null ? null : json['upcoming'] as bool,
-        cores: json['cores'] == null
-            ? null
-            : (json['cores'] as List)
-                .map<Cores>(
-                    (data) => Cores.fromJson(data as Map<String, Object?>))
-                .toList(),
-        autoUpdate:
-            json['autoUpdate'] == null ? null : json['autoUpdate'] as bool);
+        upcoming: json['upcoming'] == null ? null : json['upcoming'] as bool);
   }
 
   @override
@@ -140,19 +106,15 @@ class SpaceXlaunch {
                 fairings:${fairings.toString()},
 links:${links.toString()},
 staticFireDateUtc:$staticFireDateUtc,
-staticFireDateUnix:$staticFireDateUnix,
 rocket:$rocket,
 success:$success,
 failures:${failures.toString()},
 details:$details,
-payloads:$payloads,
 launchpad:$launchpad,
 flightNumber:$flightNumber,
 name:$name,
 dateLocal:$dateLocal,
-upcoming:$upcoming,
-cores:${cores.toString()},
-autoUpdate:$autoUpdate
+upcoming:$upcoming
     ) ''';
   }
 
@@ -163,19 +125,15 @@ autoUpdate:$autoUpdate
         other.fairings == fairings &&
         other.links == links &&
         other.staticFireDateUtc == staticFireDateUtc &&
-        other.staticFireDateUnix == staticFireDateUnix &&
         other.rocket == rocket &&
         other.success == success &&
         other.failures == failures &&
         other.details == details &&
-        other.payloads == payloads &&
         other.launchpad == launchpad &&
         other.flightNumber == flightNumber &&
         other.name == name &&
         other.dateLocal == dateLocal &&
-        other.upcoming == upcoming &&
-        other.cores == cores &&
-        other.autoUpdate == autoUpdate;
+        other.upcoming == upcoming;
   }
 
   @override
@@ -185,96 +143,15 @@ autoUpdate:$autoUpdate
         fairings,
         links,
         staticFireDateUtc,
-        staticFireDateUnix,
         rocket,
         success,
         failures,
         details,
-        payloads,
         launchpad,
         flightNumber,
         name,
         dateLocal,
-        upcoming,
-        cores,
-        autoUpdate);
-  }
-}
-
-class Cores {
-  final String? core;
-  final int? flight;
-  final bool? gridfins;
-  final bool? legs;
-  final bool? reused;
-  final bool? landingAttempt;
-  const Cores(
-      {this.core,
-      this.flight,
-      this.gridfins,
-      this.legs,
-      this.reused,
-      this.landingAttempt});
-  Cores copyWith({
-    String? core,
-    int? flight,
-    bool? gridfins,
-    bool? legs,
-    bool? reused,
-    bool? landingAttempt,
-  }) {
-    return Cores(
-        core: core ?? this.core,
-        flight: flight ?? this.flight,
-        gridfins: gridfins ?? this.gridfins,
-        legs: legs ?? this.legs,
-        reused: reused ?? this.reused,
-        landingAttempt: landingAttempt ?? this.landingAttempt);
-  }
-
-  Map<String, Object?> toJson() {
-    return {
-      'core': core,
-      'flight': flight,
-      'gridfins': gridfins,
-      'legs': legs,
-      'reused': reused,
-    };
-  }
-
-  static Cores fromJson(Map<String, Object?> json) {
-    return Cores(
-        core: json['core'] == null ? null : json['core'] as String,
-        flight: json['flight'] == null ? null : json['flight'] as int,
-        gridfins: json['gridfins'] == null ? null : json['gridfins'] as bool,
-        legs: json['legs'] == null ? null : json['legs'] as bool,
-        reused: json['reused'] == null ? null : json['reused'] as bool,
-        landingAttempt: json['landingAttempt'] == null
-            ? null
-            : json['landingAttempt'] as bool);
-  }
-
-  @override
-  String toString() {
-    return '''Cores(
-                core:$core,
-flight:$flight,
-gridfins:$gridfins,
-legs:$legs,
-reused:$reused,
-    ) ''';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return other is Cores &&
-        other.runtimeType == runtimeType &&
-        other.core == core &&
-        other.flight == flight &&
-        other.gridfins == gridfins &&
-        other.legs == legs &&
-        other.reused == reused &&
-        other.landingAttempt == landingAttempt;
+        upcoming);
   }
 }
 
@@ -283,7 +160,7 @@ class Failures {
   final dynamic altitude;
   final String? reason;
   const Failures({this.time, this.altitude, this.reason});
-  Failures copyWith({int? time, String? altitude, String? reason}) {
+  Failures copyWith({int? time, dynamic? altitude, String? reason}) {
     return Failures(
         time: time ?? this.time,
         altitude: altitude ?? this.altitude,
@@ -467,13 +344,13 @@ original:$original
 }
 
 class Reddit {
-  final dynamic campaign;
-  final dynamic launch;
-  final dynamic media;
-  final dynamic recovery;
+  final String? campaign;
+  final String? launch;
+  final String? media;
+  final String? recovery;
   const Reddit({this.campaign, this.launch, this.media, this.recovery});
   Reddit copyWith(
-      {dynamic? campaign, dynamic? launch, dynamic? media, dynamic? recovery}) {
+      {String? campaign, String? launch, String? media, String? recovery}) {
     return Reddit(
         campaign: campaign ?? this.campaign,
         launch: launch ?? this.launch,
@@ -492,10 +369,10 @@ class Reddit {
 
   static Reddit fromJson(Map<String, Object?> json) {
     return Reddit(
-        campaign: json['campaign'] as dynamic,
-        launch: json['launch'] as dynamic,
-        media: json['media'] as dynamic,
-        recovery: json['recovery'] as dynamic);
+        campaign: json['campaign'] == null ? null : json['campaign'] as String,
+        launch: json['launch'] == null ? null : json['launch'] as String,
+        media: json['media'] == null ? null : json['media'] as String,
+        recovery: json['recovery'] == null ? null : json['recovery'] as String);
   }
 
   @override
