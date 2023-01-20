@@ -17,7 +17,7 @@ class Exploration extends ConsumerWidget {
             );
           },
           data: (spaceXlaunches) {
-            return Text(spaceXlaunches);
+            return Text(spaceXlaunches.length.toString());
           },
           error: (error, stackTrace) {
             return Text(
