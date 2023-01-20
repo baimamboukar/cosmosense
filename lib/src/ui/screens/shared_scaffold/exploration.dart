@@ -34,6 +34,9 @@ class Exploration extends ConsumerWidget {
                   Expanded(child: Image.asset("assets/images/spacexlaunch.jpg"))
                 ],
               ),
+              const SizedBox(
+                height: 20,
+              ),
               Expanded(
                   child: FadeAnimatedList(
                       launches: spaceXlaunches.take(15).toList())),
