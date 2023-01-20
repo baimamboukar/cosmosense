@@ -17,11 +17,24 @@ class Exploration extends ConsumerWidget {
             );
           },
           data: (spaceXlaunches) {
-            return Text(spaceXlaunches.length.toString());
+            final alphaLaunch = spaceXlaunches[10];
+            return Column(
+              children: [
+                Image.network(alphaLaunch.links!.patch!.small ??
+                    "https://images2.imgbox.com/6c/cb/na1tzhHs_o.png"),
+                Text(alphaLaunch.name ?? ""),
+                Text(alphaLaunch.details ?? "no details"),
+                Text("Success: ${alphaLaunch.success}")
+              ],
+            );
           },
           error: (error, stackTrace) {
-            return Text(
-              error.toString(),
+            return Column(
+              children: [
+                Text(
+                  error.toString(),
+                ),
+              ],
             );
           },
         ),
