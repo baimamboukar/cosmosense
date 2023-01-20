@@ -7,3 +7,4 @@ export 'shared_scaffold/astrobips.dart';
 export 'shared_scaffold/exploration.dart';
 export 'shared_scaffold/weather.dart';
 export 'welcome.dart';
+export 'launch_details.dart';
