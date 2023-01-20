@@ -13,6 +13,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i3;
 import 'package:cosmosense/main.dart' as _i1;
+import 'package:cosmosense/src/data/models/spacex_launch.dart' as _i5;
 import 'package:cosmosense/src/ui/screens/screens.dart' as _i2;
 import 'package:flutter/material.dart' as _i4;
 
@@ -26,6 +27,16 @@ class AppRouter extends _i3.RootStackRouter {
       return _i3.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i1.Home(),
+      );
+    },
+    LaunchDetails.name: (routeData) {
+      final args = routeData.argsAs<LaunchDetailsArgs>();
+      return _i3.AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: _i2.LaunchDetails(
+          launch: args.launch,
+          key: args.key,
+        ),
       );
     },
     Login.name: (routeData) {
@@ -101,6 +112,10 @@ class AppRouter extends _i3.RootStackRouter {
           ],
         ),
         _i3.RouteConfig(
+          LaunchDetails.name,
+          path: '/launch-details',
+        ),
+        _i3.RouteConfig(
           Login.name,
           path: '/login',
         ),
@@ -126,6 +141,40 @@ class Home extends _i3.PageRouteInfo<void> {
         );
 
   static const String name = 'Home';
+}
+
+/// generated route for
+/// [_i2.LaunchDetails]
+class LaunchDetails extends _i3.PageRouteInfo<LaunchDetailsArgs> {
+  LaunchDetails({
+    required _i5.SpaceXlaunch launch,
+    _i4.Key? key,
+  }) : super(
+          LaunchDetails.name,
+          path: '/launch-details',
+          args: LaunchDetailsArgs(
+            launch: launch,
+            key: key,
+          ),
+        );
+
+  static const String name = 'LaunchDetails';
+}
+
+class LaunchDetailsArgs {
+  const LaunchDetailsArgs({
+    required this.launch,
+    this.key,
+  });
+
+  final _i5.SpaceXlaunch launch;
+
+  final _i4.Key? key;
+
+  @override
+  String toString() {
+    return 'LaunchDetailsArgs{launch: $launch, key: $key}';
+  }
 }
 
 /// generated route for
