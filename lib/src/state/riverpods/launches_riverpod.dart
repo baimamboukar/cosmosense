@@ -6,7 +6,6 @@ final spaceXlaunchesRiverpod = FutureProvider<List<SpaceXlaunch>>(
   (ref) async {
     final dio = ref.watch(dioProvider);
     final data = await dio.get('https://api.spacexdata.com/v4/launches/');
-    // loop trough data and serialize
     return data.data
         .map<SpaceXlaunch>((launch) => SpaceXlaunch.fromJson(launch))
         .toList();
