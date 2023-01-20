@@ -125,7 +125,7 @@ class _HomeState extends ConsumerState<Home> {
       bottomNavigationBuilder: (context, router) {
         return BottomNavigationBar(
           elevation: 20,
-          backgroundColor: Palette.black,
+          backgroundColor: Palette.scaffold,
           selectedItemColor: Palette.secondary,
           unselectedItemColor: Palette.secondary.withOpacity(.8),
           currentIndex: router.activeIndex,
@@ -150,11 +150,11 @@ class _HomeState extends ConsumerState<Home> {
             ),
             BottomNavigationBarItem(
               icon: const Icon(
-                LineIcons.satellite,
+                LineIcons.rocket,
                 size: 22,
               ),
               backgroundColor: Palette.primary,
-              label: "satellites",
+              label: "launches",
             ),
             BottomNavigationBarItem(
               icon: const Icon(
