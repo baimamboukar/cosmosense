@@ -16,6 +16,7 @@ import 'package:cosmosense/src/ui/screens/screens.dart';
         AutoRoute(page: Weather, path: 'space-weather'),
       ],
     ),
+    AutoRoute(page: LaunchDetails, path: '/launch-details'),
     AutoRoute(page: Login, path: '/login'),
     AutoRoute(page: Signin, path: '/signin'),
     AutoRoute(page: Welcome, path: '/welcome')
