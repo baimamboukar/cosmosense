@@ -1,4 +1,5 @@
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
+import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -102,14 +103,23 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                         Text(launch.name ?? "Launch AlphaX",
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                                color: Palette.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 16)),
+                                              color: Palette.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 15,
+                                            )),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Badge(success: launch.success ?? true),
+                                        // Indicator(
+                                        //     success: launch.upcoming ?? false)
                                       ],
                                     ),
                                     Row(
                                       children: [
-                                        Text(launch.upcoming.toString()),
+                                        Text(
+                                          launch.upcoming.toString(),
+                                        ),
                                       ],
                                     )
                                   ],
