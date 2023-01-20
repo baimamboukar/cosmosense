@@ -110,16 +110,16 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                         const SizedBox(
                                           width: 10,
                                         ),
-                                        Badge(success: launch.success ?? true),
+                                        Badge(
+                                          success: launch.success ?? true,
+                                        ),
                                         // Indicator(
                                         //     success: launch.upcoming ?? false)
                                       ],
                                     ),
                                     Row(
                                       children: [
-                                        Text(
-                                          launch.upcoming.toString(),
-                                        ),
+                                        Text(launch.rocket ?? ""),
                                       ],
                                     )
                                   ],
