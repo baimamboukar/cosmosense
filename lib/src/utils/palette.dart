@@ -22,4 +22,18 @@ class Palette {
   static Color moon = const Color(0xFFC3C2BE);
   static Color jupiter = const Color(0xFF404436);
   static Color venus = const Color(0xFFFFC649);
+
+  static List<Color> variants = [
+    earth,
+    venus,
+    mercury,
+    venus,
+    neptune,
+    mars,
+    saturn,
+    jupiter,
+    secondary,
+    tertiary,
+    grey,
+  ];
 }
