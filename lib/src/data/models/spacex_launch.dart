@@ -208,39 +208,28 @@ class Cores {
   final bool? legs;
   final bool? reused;
   final bool? landingAttempt;
-  final dynamic landingSuccess;
-  final dynamic landingType;
-  final dynamic landpad;
   const Cores(
       {this.core,
       this.flight,
       this.gridfins,
       this.legs,
       this.reused,
-      this.landingAttempt,
-      this.landingSuccess,
-      this.landingType,
-      this.landpad});
-  Cores copyWith(
-      {String? core,
-      int? flight,
-      bool? gridfins,
-      bool? legs,
-      bool? reused,
-      bool? landingAttempt,
-      dynamic? landingSuccess,
-      dynamic? landingType,
-      dynamic? landpad}) {
+      this.landingAttempt});
+  Cores copyWith({
+    String? core,
+    int? flight,
+    bool? gridfins,
+    bool? legs,
+    bool? reused,
+    bool? landingAttempt,
+  }) {
     return Cores(
         core: core ?? this.core,
         flight: flight ?? this.flight,
         gridfins: gridfins ?? this.gridfins,
         legs: legs ?? this.legs,
         reused: reused ?? this.reused,
-        landingAttempt: landingAttempt ?? this.landingAttempt,
-        landingSuccess: landingSuccess ?? this.landingSuccess,
-        landingType: landingType ?? this.landingType,
-        landpad: landpad ?? this.landpad);
+        landingAttempt: landingAttempt ?? this.landingAttempt);
   }
 
   Map<String, Object?> toJson() {
@@ -250,10 +239,6 @@ class Cores {
       'gridfins': gridfins,
       'legs': legs,
       'reused': reused,
-      'landingAttempt': landingAttempt,
-      'landingSuccess': landingSuccess,
-      'landingType': landingType,
-      'landpad': landpad
     };
   }
 
@@ -266,10 +251,7 @@ class Cores {
         reused: json['reused'] == null ? null : json['reused'] as bool,
         landingAttempt: json['landingAttempt'] == null
             ? null
-            : json['landingAttempt'] as bool,
-        landingSuccess: json['landingSuccess'] as dynamic,
-        landingType: json['landingType'] as dynamic,
-        landpad: json['landpad'] as dynamic);
+            : json['landingAttempt'] as bool);
   }
 
   @override
@@ -280,10 +262,6 @@ flight:$flight,
 gridfins:$gridfins,
 legs:$legs,
 reused:$reused,
-landingAttempt:$landingAttempt,
-landingSuccess:$landingSuccess,
-landingType:$landingType,
-landpad:$landpad
     ) ''';
   }
 
@@ -296,16 +274,7 @@ landpad:$landpad
         other.gridfins == gridfins &&
         other.legs == legs &&
         other.reused == reused &&
-        other.landingAttempt == landingAttempt &&
-        other.landingSuccess == landingSuccess &&
-        other.landingType == landingType &&
-        other.landpad == landpad;
-  }
-
-  @override
-  int get hashCode {
-    return Object.hash(runtimeType, core, flight, gridfins, legs, reused,
-        landingAttempt, landingSuccess, landingType, landpad);
+        other.landingAttempt == landingAttempt;
   }
 }
 
@@ -314,7 +283,7 @@ class Failures {
   final dynamic altitude;
   final String? reason;
   const Failures({this.time, this.altitude, this.reason});
-  Failures copyWith({int? time, dynamic? altitude, String? reason}) {
+  Failures copyWith({int? time, String? altitude, String? reason}) {
     return Failures(
         time: time ?? this.time,
         altitude: altitude ?? this.altitude,
@@ -360,7 +329,6 @@ class Links {
   final Patch? patch;
   final Reddit? reddit;
   final Flickr? flickr;
-  final dynamic presskit;
   final String? webcast;
   final String? youtubeId;
   final String? article;
@@ -369,7 +337,6 @@ class Links {
       {this.patch,
       this.reddit,
       this.flickr,
-      this.presskit,
       this.webcast,
       this.youtubeId,
       this.article,
@@ -378,7 +345,6 @@ class Links {
       {Patch? patch,
       Reddit? reddit,
       Flickr? flickr,
-      dynamic? presskit,
       String? webcast,
       String? youtubeId,
       String? article,
@@ -387,7 +353,6 @@ class Links {
         patch: patch ?? this.patch,
         reddit: reddit ?? this.reddit,
         flickr: flickr ?? this.flickr,
-        presskit: presskit ?? this.presskit,
         webcast: webcast ?? this.webcast,
         youtubeId: youtubeId ?? this.youtubeId,
         article: article ?? this.article,
@@ -399,7 +364,6 @@ class Links {
       'patch': patch?.toJson(),
       'reddit': reddit?.toJson(),
       'flickr': flickr?.toJson(),
-      'presskit': presskit,
       'webcast': webcast,
       'youtubeId': youtubeId,
       'article': article,
@@ -418,7 +382,6 @@ class Links {
         flickr: json['flickr'] == null
             ? null
             : Flickr.fromJson(json['flickr'] as Map<String, Object?>),
-        presskit: json['presskit'] as dynamic,
         webcast: json['webcast'] == null ? null : json['webcast'] as String,
         youtubeId:
             json['youtubeId'] == null ? null : json['youtubeId'] as String,
@@ -433,7 +396,6 @@ class Links {
                 patch:${patch.toString()},
 reddit:${reddit.toString()},
 flickr:${flickr.toString()},
-presskit:$presskit,
 webcast:$webcast,
 youtubeId:$youtubeId,
 article:$article,
@@ -448,7 +410,6 @@ wikipedia:$wikipedia
         other.patch == patch &&
         other.reddit == reddit &&
         other.flickr == flickr &&
-        other.presskit == presskit &&
         other.webcast == webcast &&
         other.youtubeId == youtubeId &&
         other.article == article &&
@@ -457,8 +418,8 @@ wikipedia:$wikipedia
 
   @override
   int get hashCode {
-    return Object.hash(runtimeType, patch, reddit, flickr, presskit, webcast,
-        youtubeId, article, wikipedia);
+    return Object.hash(runtimeType, patch, reddit, flickr, webcast, youtubeId,
+        article, wikipedia);
   }
 }
 
