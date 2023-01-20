@@ -15,7 +15,10 @@ final dioProvider = Provider<Dio>(
         },
       ),
     )..interceptors.add(
-        LogInterceptor(responseBody: true, requestBody: true),
+        LogInterceptor(
+          responseBody: true,
+          requestBody: true,
+        ),
       );
   },
 );
