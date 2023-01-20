@@ -1,8 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:cosmosense/src/router/router.gr.dart' as routes;
 
 class FadeAnimatedList extends ConsumerStatefulWidget {
   final List<SpaceXlaunch> launches;
@@ -21,10 +24,12 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
   bool close = false;
   void listenScroll() {
     double firstEelementOffset = scrollController.offset / 80;
-    setState(() {
-      topContainer = firstEelementOffset;
-      close = scrollController.offset > 30;
-    });
+    setState(
+      () {
+        topContainer = firstEelementOffset;
+        close = scrollController.offset > 30;
+      },
+    );
   }
 
   @override
@@ -41,7 +46,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
 
   @override
   Widget build(BuildContext context) {
-    const itemSize = 150.0;
+    // const itemSize = 150.0;
     return ListView.builder(
         controller: scrollController,
         physics: const BouncingScrollPhysics(),
@@ -72,7 +77,15 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                   child: Builder(builder: (context) {
                     // find a color on Palette.variants
 
-                    return Card(
+                    return GestureDetector(
+                      onTap: () {
+                        context.router.push(
+                          routes.LaunchDetails(
+                            launch: launch,
+                          ),
+                        );
+                      },
+                      child: Card(
                         color: Palette.scaffold.withOpacity(.8),
                         elevation: 5.0,
                         // margin: const EdgeInsets.all(10.0),
@@ -119,7 +132,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                     ),
                                     Row(
                                       children: [
-                                        Text(launch.rocket ?? ""),
+                                        SelectableText(launch.rocket ?? ""),
                                       ],
                                     )
                                   ],
@@ -133,7 +146,9 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                               ),
                             ],
                           ),
-                        ));
+                        ),
+                      ),
+                    );
                   }),
                 ),
               ),
