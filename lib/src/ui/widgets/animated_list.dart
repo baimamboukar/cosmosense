@@ -68,63 +68,63 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                 child: Transform(
                   alignment: Alignment.bottomCenter,
                   transform: Matrix4.identity()..scale(scale, 1.0),
-                  child: Card(
-                      color: Palette.moon,
-                      elevation: 5.0,
-                      // margin: const EdgeInsets.all(10.0),
-                      shadowColor: Palette.white,
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(
-                                24.0,
+                  child: Builder(builder: (context) {
+                    // find a color on Palette.variants
+
+                    return Card(
+                        color: Palette.scaffold.withOpacity(.8),
+                        elevation: 5.0,
+                        // margin: const EdgeInsets.all(10.0),
+                        shadowColor: Palette.white,
+                        shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(
+                                  24.0,
+                                ),
+                                topRight: Radius.circular(24.0)),
+                            side:
+                                BorderSide(color: Colors.black12, width: 2.20)),
+                        child: SizedBox(
+                          height: 100.0,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 12.0, bottom: 8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(launch.name ?? "Launch AlphaX",
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                                color: Palette.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16)),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(launch.upcoming.toString()),
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
-                              topRight: Radius.circular(24.0)),
-                          side: BorderSide(color: Colors.black12, width: 2.20)),
-                      child: SizedBox(
-                        height: 100.0,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                  left: 12.0, bottom: 8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Text(launch.name ?? "Launch AlphaX",
-                                          overflow: TextOverflow.ellipsis,
-                                          style: TextStyle(
-                                              color: Palette.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16)),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 10.0),
-                                  Row(
-                                    children: const [
-                                      Text("120 quizz"),
-                                      SizedBox(
-                                        width: 15.0,
-                                      ),
-                                      Text("10 Taken")
-                                    ],
-                                  )
-                                ],
+                              Image.network(
+                                launch.links!.patch!.small ??
+                                    "https://images2.imgbox.com/ab/5a/Pequxd5d_o.png",
+                                height: 80.0,
+                                width: 80.0,
                               ),
-                            ),
-                            Image.asset(
-                              launch.links!.patch!.small ??
-                                  "assets/icons/png/atom.png",
-                              height: 80.0,
-                              width: 80.0,
-                            ),
-                          ],
-                        ),
-                      )),
+                            ],
+                          ),
+                        ));
+                  }),
                 ),
               ),
             ),
