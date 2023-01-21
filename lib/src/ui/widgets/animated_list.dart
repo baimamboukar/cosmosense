@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
+import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -132,8 +133,9 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                     ),
                                     Row(
                                       children: [
-                                        SelectableText(
-                                            "${launch.flightNumber}"),
+                                        SelectableText(DateParser.parse(
+                                            launch.dateLocal ??
+                                                "2020-10-07T00:00:00Z")),
                                       ],
                                     )
                                   ],
