@@ -78,9 +78,9 @@ class SpaceXlaunch {
         links: json['links'] == null
             ? null
             : Links.fromJson(json['links'] as Map<String, Object?>),
-        staticFireDateUtc: json['staticFireDateUtc'] == null
+        staticFireDateUtc: json['static_fire_date_utc'] == null
             ? null
-            : json['staticFireDateUtc'] as String,
+            : json['static_fire_date_utc'] as String,
         rocket: json['rocket'] == null ? null : json['rocket'] as String,
         success: json['success'] == null ? null : json['success'] as bool,
         failures: json['failures'] == null
@@ -93,10 +93,10 @@ class SpaceXlaunch {
         launchpad:
             json['launchpad'] == null ? null : json['launchpad'] as String,
         flightNumber:
-            json['flightNumber'] == null ? null : json['flightNumber'] as int,
+            json['flight_number'] == null ? null : json['flight_number'] as int,
         name: json['name'] == null ? null : json['name'] as String,
         dateLocal:
-            json['dateLocal'] == null ? null : json['dateLocal'] as String,
+            json['date_local'] == null ? null : json['date_local'] as String,
         upcoming: json['upcoming'] == null ? null : json['upcoming'] as bool);
   }
 
@@ -261,7 +261,7 @@ class Links {
             : Flickr.fromJson(json['flickr'] as Map<String, Object?>),
         webcast: json['webcast'] == null ? null : json['webcast'] as String,
         youtubeId:
-            json['youtubeId'] == null ? null : json['youtubeId'] as String,
+            json['youtube_id'] == null ? null : json['youtube_id'] as String,
         article: json['article'] == null ? null : json['article'] as String,
         wikipedia:
             json['wikipedia'] == null ? null : json['wikipedia'] as String);
@@ -464,9 +464,9 @@ class Fairings {
   static Fairings fromJson(Map<String, Object?> json) {
     return Fairings(
         reused: json['reused'] == null ? null : json['reused'] as bool,
-        recoveryAttempt: json['recoveryAttempt'] == null
+        recoveryAttempt: json['recovery_attempt'] == null
             ? null
-            : json['recoveryAttempt'] as bool,
+            : json['recovery_attempt'] as bool,
         recovered:
             json['recovered'] == null ? null : json['recovered'] as bool);
   }
