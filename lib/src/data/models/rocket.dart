@@ -573,7 +573,7 @@ class Height {
   Height({this.meters, this.feet});
 
   Height.fromJson(Map<String, dynamic> json) {
-    meters = json["meters"];
+    meters = json["meters"] as double;
     feet = json["feet"];
   }
 
