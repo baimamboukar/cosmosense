@@ -49,6 +49,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
   Widget build(BuildContext context) {
     // const itemSize = 150.0;
     return ListView.builder(
+        // reverse: true,
         controller: scrollController,
         physics: const BouncingScrollPhysics(),
         itemCount: widget.launches.length,
