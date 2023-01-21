@@ -127,12 +127,15 @@ class NasaImage extends ConsumerWidget {
                     ),
                   ],
                 ),
+                const SizedBox(
+                  height: 8,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text(apodData.copyright ?? "",
                         style: Styles.title()
-                            .copyWith(fontFamily: "Daesang", fontSize: 12)),
+                            .copyWith(fontFamily: "Daesang", fontSize: 10)),
                   ],
                 )
               ],
