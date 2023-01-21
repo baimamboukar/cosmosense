@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 
 class LaunchDetails extends ConsumerStatefulWidget {
   final SpaceXlaunch launch;
@@ -53,9 +55,36 @@ class _LaunchDetailsState extends ConsumerState<LaunchDetails> {
                     Text(data.height!.meters.toString()),
                     Text(data.id ?? "No id"),
                     Text(data.mass!.kg.toString()),
-                    ...data.flickrImages!
-                        .map((imgLink) => Image.network(imgLink))
-                        .toList(),
+                    SizedBox(
+                      height: 120,
+                      child: PhotoViewGallery.builder(
+                        scrollPhysics: const BouncingScrollPhysics(),
+                        builder: (BuildContext context, int index) {
+                          final photo = data.flickrImages![index];
+                          return PhotoViewGalleryPageOptions(
+                            imageProvider: NetworkImage(photo),
+                            initialScale:
+                                PhotoViewComputedScale.contained * 0.8,
+                            heroAttributes: PhotoViewHeroAttributes(tag: photo),
+                          );
+                        },
+                        itemCount: data.flickrImages!.length,
+                        loadingBuilder: (context, event) => const Center(
+                          child: SizedBox(
+                            width: 20.0,
+                            height: 20.0,
+                            child: CupertinoActivityIndicator(),
+                          ),
+                        ),
+                        backgroundDecoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage("assets/images/background.jpg"),
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        onPageChanged: (index) {},
+                      ),
+                    ),
                   ],
                 ),
               );
