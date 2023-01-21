@@ -1,5 +1,6 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cosmosense/src/state/riverpods/apod_riverpod.dart';
+import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
@@ -58,33 +59,8 @@ class NasaImage extends ConsumerWidget {
                 ),
                 Builder(
                   builder: (context) {
-                    final months = [
-                      "January",
-                      "Febuary",
-                      "March",
-                      "April",
-                      "May",
-                      "June",
-                      "July",
-                      "September",
-                      "October",
-                      "November",
-                      "December"
-                    ];
-                    final splitedDate = apodData.date!.split("-");
-                    final dateString = StringBuffer(splitedDate[2]);
-                    if (splitedDate[2].endsWith("1")) {
-                      dateString.write("st");
-                    } else if (splitedDate[2].endsWith("2")) {
-                      dateString.write("nd");
-                    } else if (splitedDate[2].endsWith("3")) {
-                      dateString.write("rd");
-                    } else {
-                      dateString.write("th");
-                    }
-                    dateString
-                        .write(", ${months[int.parse(splitedDate[1]) - 1]}");
-                    dateString.write(" ${splitedDate[0]}");
+                    final dateString =
+                        DateParser.parse(apodData.date ?? "2020-10-07");
 
                     return Text(
                       dateString.toString(),
