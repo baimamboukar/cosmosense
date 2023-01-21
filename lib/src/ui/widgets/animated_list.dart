@@ -67,18 +67,18 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
           return GestureDetector(
             onTap: () {},
             child: Align(
-              heightFactor: 0.6,
+              heightFactor: 0.7,
               alignment: Alignment.topCenter,
               child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 200),
                 opacity: scale,
                 child: Transform(
-                  alignment: Alignment.bottomCenter,
-                  transform: Matrix4.identity()..scale(scale, 1.0),
-                  child: Builder(builder: (context) {
-                    // find a color on Palette.variants
+                    alignment: Alignment.bottomCenter,
+                    transform: Matrix4.identity()..scale(scale, 1.0),
+                    child:
+                        // find a color on Palette.variants
 
-                    return GestureDetector(
+                        GestureDetector(
                       onTap: () {
                         context.router.push(
                           routes.LaunchDetails(
@@ -91,69 +91,76 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                         elevation: 5.0,
                         // margin: const EdgeInsets.all(10.0),
                         shadowColor: Palette.white,
-                        shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: const BorderRadius.only(
                                 topLeft: Radius.circular(
                                   24.0,
                                 ),
                                 topRight: Radius.circular(24.0)),
-                            side:
-                                BorderSide(color: Colors.black12, width: 2.20)),
-                        child: SizedBox(
-                          height: 100.0,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 12.0, bottom: 8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(launch.name ?? "Launch AlphaX",
-                                            overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
-                                              color: Palette.white,
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                            )),
-                                        const SizedBox(
-                                          width: 10,
-                                        ),
-                                        Badge(
-                                          success: launch.success ?? true,
-                                        ),
-                                        // Indicator(
-                                        //     success: launch.upcoming ?? false)
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        SelectableText(DateParser.parse(
-                                            launch.dateLocal ??
-                                                "2020-10-07T00:00:00Z")),
-                                      ],
-                                    )
-                                  ],
+                            side: BorderSide(color: Palette.grey, width: 2.20)),
+                        child: Column(
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 12.0, bottom: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(launch.name ?? "Launch AlphaX",
+                                              overflow: TextOverflow.ellipsis,
+                                              style: TextStyle(
+                                                color: Palette.white,
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 15,
+                                              )),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
+                                          Badge(
+                                            success: launch.success ?? true,
+                                          ),
+                                          // Indicator(
+                                          //     success: launch.upcoming ?? false)
+                                        ],
+                                      ),
+                                      const SizedBox(
+                                        height: 4,
+                                      ),
+                                      Row(
+                                        children: [
+                                          SelectableText(
+                                            "launched on ${DateParser.parse(launch.dateLocal ?? "2020-10-07T00:00:00Z")} by SpaceX",
+                                            style:
+                                                const TextStyle(fontSize: 8.5),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              Image.network(
-                                launch.links!.patch!.small ??
-                                    "https://images2.imgbox.com/ab/5a/Pequxd5d_o.png",
-                                height: 80.0,
-                                width: 80.0,
-                              ),
-                            ],
-                          ),
+                                Image.network(
+                                  launch.links!.patch!.small ??
+                                      "https://images2.imgbox.com/ab/5a/Pequxd5d_o.png",
+                                  height: 80.0,
+                                  width: 80.0,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ),
-                    );
-                  }),
-                ),
+                    )),
               ),
             ),
           );
