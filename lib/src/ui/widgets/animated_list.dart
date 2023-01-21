@@ -132,7 +132,8 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                     ),
                                     Row(
                                       children: [
-                                        SelectableText(launch.rocket ?? ""),
+                                        SelectableText(
+                                            "${launch.flightNumber}"),
                                       ],
                                     )
                                   ],
