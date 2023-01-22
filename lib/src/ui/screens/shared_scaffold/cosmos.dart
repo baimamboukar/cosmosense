@@ -8,6 +8,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 
 final activePlanetIndexRiverpod = StateProvider<int>((ref) => 0);
+ValueNotifier<String> nicknameNotifier =
+    ValueNotifier<String>(planets[0].details['nickname']);
 
 class Cosmos extends ConsumerWidget {
   const Cosmos({super.key});
@@ -31,12 +33,17 @@ class Cosmos extends ConsumerWidget {
               const SizedBox(
                 height: 14,
               ),
-              Text(
-                'HUMANS PLANET',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Palette.secondary,
-                  fontFamily: "Daesang",
+              ValueListenableBuilder(
+                valueListenable: nicknameNotifier,
+                builder: (context, nickname, widget) => FlipInX(
+                  child: Text(
+                    nickname,
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Palette.secondary,
+                      fontFamily: "Daesang",
+                    ),
+                  ),
                 ),
               ),
               Expanded(
@@ -88,11 +95,14 @@ class Cosmos extends ConsumerWidget {
                   background: Colors.transparent,
                   duration: 50,
                   curve: Curves.easeInOut,
-                  focusToItem: (index) => controller.animateToPage(
-                    index,
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.easeInOut,
-                  ),
+                  focusToItem: (index) {
+                    nicknameNotifier.value = planets[index].details['nickname'];
+                    controller.animateToPage(
+                      index,
+                      duration: const Duration(milliseconds: 300),
+                      curve: Curves.easeInOut,
+                    );
+                  },
                   updateOnScroll: true,
                   //dynamicItemOpacity: .5,
                   dynamicItemSize: true,
@@ -102,6 +112,7 @@ class Cosmos extends ConsumerWidget {
                       duration: const Duration(milliseconds: 300),
                       curve: Curves.easeInOut,
                     );
+                    nicknameNotifier.value = planets[index].details['nickname'];
                   },
                   itemSize: 100,
                   itemBuilder: (BuildContext context, int index) {
@@ -140,93 +151,93 @@ class PlanetView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Transform(
-      transform: Matrix4.identity(),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Stack(
-              fit: StackFit.loose,
-              clipBehavior: Clip.none,
-              children: [
-                Positioned(
-                  top: -50,
-                  right: 0,
-                  child: ZoomIn(
-                    duration: const Duration(seconds: 4),
-                    child: Image.asset(
-                      planet.image,
-                      height: 180,
-                      width: 180,
-                    ),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 50,
+          ),
+          Stack(
+            fit: StackFit.loose,
+            clipBehavior: Clip.none,
+            children: [
+              Positioned(
+                top: -50,
+                right: 0,
+                child: ZoomIn(
+                  duration: const Duration(seconds: 4),
+                  child: Image.asset(
+                    planet.image,
+                    height: 180,
+                    width: 180,
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Container(
-                    //height: 180,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                        color: Colors.transparent,
-                        // border: Border.all(
-                        //     color: Palette.primary, width: 0.0),
-                        borderRadius: BorderRadius.circular(12.0)),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "PLANET",
-                          style: Styles.decorateText(
-                              color: Palette.white, size: 18, bold: true),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          planet.name,
-                          style: Styles.title().copyWith(fontSize: 32),
-                        ),
-                        const SizedBox(
-                          height: 40,
-                        ),
-                        Text(
-                          planet.history,
-                          style: Styles.decorateText(
-                              color: Palette.white, size: 14, bold: false),
-                        ),
-                        const SizedBox(
-                          height: 14,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            InfoBox(
-                              label: "POPULATION",
-                              data: "7BILLION",
-                            ),
-                            InfoBox(
-                              label: "AGE",
-                              data: "5M YEARS",
-                            ),
-                            InfoBox(
-                              label: "RADIUS",
-                              data: "564k KM",
-                            )
-                          ],
-                        )
-                      ],
-                    ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Container(
+                  //height: 180,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      // border: Border.all(
+                      //     color: Palette.primary, width: 0.0),
+                      borderRadius: BorderRadius.circular(12.0)),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "PLANET",
+                        style: Styles.decorateText(
+                            color: Palette.white, size: 18, bold: true),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        planet.name,
+                        style: Styles.title().copyWith(fontSize: 32),
+                      ),
+                      const SizedBox(
+                        height: 40,
+                      ),
+                      Text(
+                        planet.history,
+                        style: Styles.decorateText(
+                            color: Palette.white, size: 14, bold: false),
+                      ),
+                      const SizedBox(
+                        height: 14,
+                      ),
+                      Wrap(
+                        alignment: WrapAlignment.spaceEvenly,
+                        children: [
+                          InfoBox(
+                            label: "MASS",
+                            data: planet.details['mass'],
+                            color: Palette.primary,
+                          ),
+                          InfoBox(
+                            label: "DISTANCE",
+                            data: planet.details['distance_from_sun'],
+                            color: Palette.mars,
+                          ),
+                          InfoBox(
+                            label: "DIAMETER",
+                            data: planet.details['diameter'],
+                            color: Palette.jupiter,
+                          )
+                        ],
+                      )
+                    ],
                   ),
-                )
-              ],
-            )
-          ],
-        ),
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }
