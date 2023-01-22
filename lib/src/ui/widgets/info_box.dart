@@ -24,9 +24,10 @@ class InfoBox extends StatelessWidget {
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(24.0)),
         child: Container(
           height: 80,
-          width: 100,
+          width: 90,
           decoration: BoxDecoration(
-              color: Palette.black, borderRadius: BorderRadius.circular(24.0)),
+              color: color!.withOpacity(.85),
+              borderRadius: BorderRadius.circular(24.0)),
           child: Padding(
             padding: const EdgeInsets.all(4.0),
             child: Column(
@@ -42,8 +43,7 @@ class InfoBox extends StatelessWidget {
                 ),
                 Text(
                   data,
-                  style: TextStyle(
-                      fontSize: 14, fontFamily: "Exo", color: Palette.white),
+                  style: TextStyle(fontSize: 10, color: Palette.white),
                 ),
               ],
             ),
