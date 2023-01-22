@@ -39,8 +39,9 @@ class _CircularListPageState extends State<CircularListPage> {
       color: colorListener.value.withOpacity(.25),
       child: wheel.CircleListScrollView.useDelegate(
         onSelectedItemChanged: (index) {
+          planetListener.value = planets[index];
           colorListener.value = planets[index].color;
-          planetNameListener.value = planets[index].name;
+          planetNameListener.value = planets[index];
           setState(() {});
         },
         childDelegate: wheel.CircleListChildBuilderDelegate(
