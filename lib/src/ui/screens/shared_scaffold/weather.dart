@@ -1,12 +1,15 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cosmosense/src/data/models/planet.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:line_icons/line_icons.dart';
 
 final colorListener = ValueNotifier<Color>(Palette.mars);
-final planetNameListener = ValueNotifier<String>("MARS");
+final planetNameListener = ValueNotifier<Planet>(planets[0]);
+final planetListener = ValueNotifier<Planet>(planets[0]);
 
 class Weather extends ConsumerWidget {
   const Weather({super.key});
@@ -31,71 +34,116 @@ class Weather extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(0),
               ),
               height: 300,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 60.0, left: 10),
-                        child: RotatedBox(
-                          quarterTurns: 1,
-                          child: ValueListenableBuilder(
-                            valueListenable: planetNameListener,
-                            builder: (context, planet, widget) => Text(
-                              planet,
-                              style: Styles.title().copyWith(
-                                  fontFamily: "Daesang",
-                                  fontSize: 30,
-                                  color: Palette.white),
+              child: ValueListenableBuilder(
+                  valueListenable: planetNameListener,
+                  builder: (context, planet, widget) {
+                    return Column(
+                      children: [
+                        const SizedBox(
+                          height: 24,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10.0, left: 10),
+                              child: RotatedBox(
+                                quarterTurns: 1,
+                                child: Text(
+                                  planet.name,
+                                  style: Styles.title().copyWith(
+                                      fontFamily: "Daesang",
+                                      fontSize: 30,
+                                      color: Palette.white),
+                                ),
+                              ),
                             ),
+                            Image.asset(
+                              planet.image,
+                              height: 180,
+                              width: 180,
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: Row(
+                            children: [
+                              CircleAvatar(
+                                backgroundColor: planet.color,
+                                child: Icon(
+                                  LineIcons.flask,
+                                  size: 28,
+                                  color: Palette.white,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              const Text(
+                                "Chemical composition",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              )
+                            ],
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
-              )),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 4),
+                          child: Text(
+                            planet.details['weather']['atmosphere'],
+                            style: const TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.normal),
+                          ),
+                        ),
+                      ],
+                    );
+                  })),
           Expanded(
             child: Row(
               children: [
                 const Expanded(
                   child: CircularListPage(),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                    color: color.withOpacity(.25),
-                    borderRadius: BorderRadius.circular(0),
-                  ),
-                  height: MediaQuery.of(context).size.height,
-                  width: 130,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        WeatherInfoBox(
-                          index: 1,
-                          data: '-145°F',
-                          label: 'Temperature',
-                          iconPath: 'assets/images/uvindex.png',
-                          color: Palette.secondary,
-                        ),
-                        WeatherInfoBox(
-                          index: 2,
-                          data: '200Pa',
-                          label: 'Pressure',
-                          iconPath: 'assets/images/pressure.png',
-                          color: Palette.primary,
-                        ),
-                        WeatherInfoBox(
-                          index: 3,
-                          data: '200ml',
-                          label: 'Humidity',
-                          iconPath: 'assets/images/humidity.png',
-                          color: Palette.grey,
-                        ),
-                      ],
+                ValueListenableBuilder(
+                  valueListenable: planetListener,
+                  builder: (context, planet, widget) => Container(
+                    decoration: BoxDecoration(
+                      color: color.withOpacity(.25),
+                      borderRadius: BorderRadius.circular(0),
+                    ),
+                    height: MediaQuery.of(context).size.height,
+                    width: 130,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          WeatherInfoBox(
+                            index: 1,
+                            data: planet.details['weather']['temperature'],
+                            label: 'Temperature',
+                            iconPath: 'assets/images/uvindex.png',
+                            color: Palette.secondary,
+                          ),
+                          WeatherInfoBox(
+                            index: 2,
+                            data: '200Pa',
+                            label: 'Pressure',
+                            iconPath: 'assets/images/pressure.png',
+                            color: Palette.primary,
+                          ),
+                          WeatherInfoBox(
+                            index: 3,
+                            data: '200ml',
+                            label: 'Humidity',
+                            iconPath: 'assets/images/humidity.png',
+                            color: Palette.grey,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -146,7 +194,10 @@ class WeatherInfoBox extends StatelessWidget {
             child: Text(
               data,
               style: TextStyle(
-                  fontSize: 18, fontFamily: "Varino", color: Palette.white),
+                  fontSize: 14,
+                  fontFamily: "Exo",
+                  color: Palette.white,
+                  fontWeight: FontWeight.bold),
             ),
           ),
           Positioned(
