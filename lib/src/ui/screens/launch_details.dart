@@ -79,7 +79,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:iconly/iconly.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class LaunchDetails extends ConsumerWidget {
   final SpaceXlaunch launch;
@@ -219,13 +218,6 @@ class HeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    YoutubePlayerController controller = YoutubePlayerController(
-      initialVideoId: launch.links!.youtubeId ?? "No id",
-      flags: const YoutubePlayerFlags(
-        autoPlay: true,
-        mute: true,
-      ),
-    );
     return SliverAppBar(
       expandedHeight: 300,
       stretch: true,
@@ -237,11 +229,9 @@ class HeaderWidget extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            Positioned.fill(
-              child: YoutubePlayer(
-                controller: controller,
-                showVideoProgressIndicator: true,
-              ),
+            Image.network(
+              launch.links!.flickr!.original!.first ?? "",
+              fit: BoxFit.cover,
             ),
             Align(
               alignment: Alignment.bottomCenter,
