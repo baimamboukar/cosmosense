@@ -187,7 +187,12 @@ class LaunchDetails extends ConsumerWidget {
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(left: 25.0),
-                                child: Text(data.country ?? "No country"),
+                                child: Text(
+                                  data.country ?? "No country",
+                                  style: const TextStyle(
+                                    fontSize: 10,
+                                  ),
+                                ),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -216,8 +221,8 @@ class LaunchDetails extends ConsumerWidget {
                             clipBehavior: Clip.none,
                             children: [
                               Container(
-                                height:
-                                    MediaQuery.of(context).size.height * 0.3,
+                                // height:
+                                //     MediaQuery.of(context).size.height * 0.3,
                                 width: MediaQuery.of(context).size.width * 0.35,
                                 padding: const EdgeInsets.all(8.0),
                                 decoration: BoxDecoration(
@@ -375,10 +380,10 @@ class HeaderWidget extends StatelessWidget {
         background: Stack(
           fit: StackFit.expand,
           children: [
-            Image.network(
-              launch.links!.flickr!.original!.first ??
-                  "https://www.spacex.com/static/images/share.jpg",
-              fit: BoxFit.cover,
+            Positioned.fill(
+              child: Image.network(launch.links!.flickr!.original!.isNotEmpty
+                  ? launch.links!.flickr!.original!.first
+                  : "https://www.spacex.com/static/images/share.jpg"),
             ),
             Align(
               alignment: Alignment.bottomCenter,
