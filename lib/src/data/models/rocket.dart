@@ -186,7 +186,7 @@ class Engines {
   int? engineLossMax;
   String? propellant1;
   String? propellant2;
-  int? thrustToWeight;
+  num? thrustToWeight;
 
   Engines(
       {this.isp,
@@ -216,7 +216,7 @@ class Engines {
     engineLossMax = json["engine_loss_max"];
     propellant1 = json["propellant_1"];
     propellant2 = json["propellant_2"];
-    thrustToWeight = json["thrust_to_weight"];
+    thrustToWeight = json["thrust_to_weight"] as num;
   }
 
   Map<String, dynamic> toJson() {
@@ -304,8 +304,8 @@ class SecondStage {
   Payloads? payloads;
   bool? reusable;
   int? engines;
-  double? fuelAmountTons;
-  int? burnTimeSec;
+  num? fuelAmountTons;
+  num? burnTimeSec;
 
   SecondStage(
       {this.thrust,
@@ -321,8 +321,8 @@ class SecondStage {
         json["payloads"] == null ? null : Payloads.fromJson(json["payloads"]);
     reusable = json["reusable"];
     engines = json["engines"];
-    fuelAmountTons = json["fuel_amount_tons"];
-    burnTimeSec = json["burn_time_sec"];
+    fuelAmountTons = json["fuel_amount_tons"] as num;
+    burnTimeSec = json["burn_time_sec"] as num;
   }
 
   Map<String, dynamic> toJson() {
@@ -408,14 +408,14 @@ class Diameter1 {
 }
 
 class Height1 {
-  double? meters;
-  double? feet;
+  num? meters;
+  num? feet;
 
   Height1({this.meters, this.feet});
 
   Height1.fromJson(Map<String, dynamic> json) {
-    meters = json["meters"];
-    feet = json["feet"];
+    meters = json["meters"] as num;
+    feet = json["feet"] as num;
   }
 
   Map<String, dynamic> toJson() {
@@ -450,7 +450,7 @@ class FirstStage {
   ThrustVacuum? thrustVacuum;
   bool? reusable;
   int? engines;
-  double? fuelAmountTons;
+  num? fuelAmountTons;
   int? burnTimeSec;
 
   FirstStage(
@@ -470,7 +470,7 @@ class FirstStage {
         : ThrustVacuum.fromJson(json["thrust_vacuum"]);
     reusable = json["reusable"];
     engines = json["engines"];
-    fuelAmountTons = json["fuel_amount_tons"];
+    fuelAmountTons = json["fuel_amount_tons"] as num;
     burnTimeSec = json["burn_time_sec"];
   }
 
@@ -548,14 +548,14 @@ class Mass {
 }
 
 class Diameter {
-  double? meters;
-  double? feet;
+  num? meters;
+  num? feet;
 
   Diameter({this.meters, this.feet});
 
   Diameter.fromJson(Map<String, dynamic> json) {
-    meters = json["meters"];
-    feet = json["feet"];
+    meters = json["meters"] as num;
+    feet = json["feet"] as num;
   }
 
   Map<String, dynamic> toJson() {
@@ -567,14 +567,14 @@ class Diameter {
 }
 
 class Height {
-  int? meters;
-  int? feet;
+  num? meters;
+  num? feet;
 
   Height({this.meters, this.feet});
 
   Height.fromJson(Map<String, dynamic> json) {
-    meters = json["meters"] as int;
-    feet = json["feet"];
+    meters = json["meters"] as num;
+    feet = json["feet"] as num;
   }
 
   Map<String, dynamic> toJson() {
