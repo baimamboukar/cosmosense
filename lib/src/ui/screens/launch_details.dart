@@ -80,7 +80,9 @@ import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:iconly/iconly.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LaunchDetails extends ConsumerWidget {
   final SpaceXlaunch launch;
@@ -163,7 +165,50 @@ class LaunchDetails extends ConsumerWidget {
                                   ),
                                 ],
                               ),
-                              Text(data.engines!.type ?? "No type"),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 25.0),
+                                child: Text(data.engines!.type ?? "No type"),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(IconlyBroken.location),
+                                  Text(
+                                    "Launch country",
+                                    style: TextStyle(
+                                      color: Palette.secondary,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 25.0),
+                                child: Text(data.country ?? "No country"),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  const Icon(LineIcons.fulcrum),
+                                  Text(
+                                    "Cost per launch",
+                                    style: TextStyle(
+                                      color: Palette.secondary,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(left: 25.0),
+                                child: Text(data.costPerLaunch.toString()),
+                              ),
                             ],
                           ),
                           Stack(
@@ -176,7 +221,7 @@ class LaunchDetails extends ConsumerWidget {
                                 width: MediaQuery.of(context).size.width * 0.35,
                                 padding: const EdgeInsets.all(8.0),
                                 decoration: BoxDecoration(
-                                  color: Palette.moon,
+                                  color: Palette.secondary.withOpacity(.65),
                                   borderRadius: const BorderRadius.only(
                                     topLeft: Radius.circular(50),
                                     bottomRight: Radius.circular(50),
@@ -184,12 +229,28 @@ class LaunchDetails extends ConsumerWidget {
                                     bottomLeft: Radius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Watch",
-                                  style: TextStyle(
-                                    color: Palette.red,
-                                    fontSize: 12,
-                                  ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    const SizedBox(
+                                      height: 60,
+                                    ),
+                                    Text(
+                                      data.name ?? "No name",
+                                      style: TextStyle(
+                                        color: Palette.white,
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    Text(
+                                      data.description ?? "No name",
+                                      style: TextStyle(
+                                        color: Palette.white,
+                                        fontSize: 11,
+                                      ),
+                                    ),
+                                  ],
                                 ),
                               ),
                               Positioned(
@@ -236,7 +297,7 @@ class LaunchDetails extends ConsumerWidget {
               fontSize: 12,
             ),
           ),
-          const BottomWidget(),
+          BottomWidget(launch: launch),
         ],
       ),
     );
@@ -244,8 +305,10 @@ class LaunchDetails extends ConsumerWidget {
 }
 
 class BottomWidget extends StatelessWidget {
+  final SpaceXlaunch launch;
   const BottomWidget({
     Key? key,
+    required this.launch,
   }) : super(key: key);
 
   @override
@@ -262,17 +325,29 @@ class BottomWidget extends StatelessWidget {
           const Spacer(),
           IconButton(
             icon: const Icon(
-              LineIcons.chromecast,
-              color: Colors.pinkAccent,
+              LineIcons.wikipediaW,
+              color: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () async {
+              final url = Uri.parse(launch.links!.wikipedia!);
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
-          Align(
-            widthFactor: 0.2,
-            child: IconButton(
-              icon: Icon(LineIcons.youtube, color: Palette.red),
-              onPressed: () {},
-            ),
+          IconButton(
+            icon: Icon(LineIcons.youtube, color: Palette.red),
+            onPressed: () async {
+              final url = Uri.parse(
+                  'https://www.youtube.com/watch?v=${launch.links!.youtubeId}');
+              if (await canLaunchUrl(url)) {
+                await launchUrl(url);
+              } else {
+                throw 'Could not launch $url';
+              }
+            },
           ),
         ],
       ),
@@ -301,7 +376,8 @@ class HeaderWidget extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             Image.network(
-              launch.links!.flickr!.original!.first ?? "",
+              launch.links!.flickr!.original!.first ??
+                  "https://www.spacex.com/static/images/share.jpg",
               fit: BoxFit.cover,
             ),
             Align(
