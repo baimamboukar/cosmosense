@@ -118,31 +118,33 @@ class Weather extends ConsumerWidget {
                     width: 130,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          WeatherInfoBox(
-                            index: 1,
-                            data: planet.details['weather']['temperature'],
-                            label: 'Temperature',
-                            iconPath: 'assets/images/uvindex.png',
-                            color: Palette.secondary,
-                          ),
-                          WeatherInfoBox(
-                            index: 2,
-                            data: '200Pa',
-                            label: 'Pressure',
-                            iconPath: 'assets/images/pressure.png',
-                            color: Palette.primary,
-                          ),
-                          WeatherInfoBox(
-                            index: 3,
-                            data: '200ml',
-                            label: 'Humidity',
-                            iconPath: 'assets/images/humidity.png',
-                            color: Palette.grey,
-                          ),
-                        ],
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            WeatherInfoBox(
+                              index: 1,
+                              data: planet.details['weather']['temperature'],
+                              label: 'Temperature',
+                              iconPath: 'assets/images/uvindex.png',
+                              color: Palette.secondary,
+                            ),
+                            WeatherInfoBox(
+                              index: 2,
+                              data: '200Pa',
+                              label: 'Pressure',
+                              iconPath: 'assets/images/pressure.png',
+                              color: Palette.primary,
+                            ),
+                            WeatherInfoBox(
+                              index: 3,
+                              data: '200ml',
+                              label: 'Humidity',
+                              iconPath: 'assets/images/humidity.png',
+                              color: Palette.grey,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -177,52 +179,55 @@ class WeatherInfoBox extends StatelessWidget {
       //delay: const Duration(milliseconds: 250),
       from: 200,
       duration: Duration(milliseconds: index * 750),
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Container(
-            height: 100,
-            width: 120,
-            decoration: BoxDecoration(
-              color: color.withOpacity(0.65),
-              borderRadius: BorderRadius.circular(30),
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: Stack(
+          clipBehavior: Clip.none,
+          children: [
+            Container(
+              height: 100,
+              width: 120,
+              decoration: BoxDecoration(
+                color: color.withOpacity(0.65),
+                borderRadius: BorderRadius.circular(30),
+              ),
             ),
-          ),
-          Positioned(
-            top: 40,
-            left: 10,
-            child: Text(
-              data,
-              style: TextStyle(
-                  fontSize: 14,
-                  fontFamily: "Exo",
-                  color: Palette.white,
-                  fontWeight: FontWeight.bold),
+            Positioned(
+              top: 40,
+              left: 10,
+              child: Text(
+                data,
+                style: TextStyle(
+                    fontSize: 14,
+                    fontFamily: "Exo",
+                    color: Palette.white,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Positioned(
-            bottom: 15,
-            left: 10,
-            child: Text(
-              label,
-              style: TextStyle(
-                  fontSize: 12,
-                  fontFamily: "Exo",
-                  color: Palette.white,
-                  fontWeight: FontWeight.bold),
+            Positioned(
+              bottom: 15,
+              left: 10,
+              child: Text(
+                label,
+                style: TextStyle(
+                    fontSize: 12,
+                    fontFamily: "Exo",
+                    color: Palette.white,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Positioned(
-            top: -10,
-            right: -10,
-            child: Image.asset(
-              iconPath,
-              color: color,
-              height: 50,
-              width: 50,
+            Positioned(
+              top: -10,
+              right: -10,
+              child: Image.asset(
+                iconPath,
+                color: color,
+                height: 50,
+                width: 50,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
