@@ -15,12 +15,12 @@ class CircleListItem extends StatelessWidget {
     return Center(
       child: Row(mainAxisSize: MainAxisSize.min, children: [
         Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(0.0),
           child: Text(
             character.name,
             style: TextStyle(
               color: Palette.secondary,
-              fontSize: 16 * resizeFactor,
+              fontSize: 13 * resizeFactor,
               fontFamily: "Varino",
             ),
           ),
