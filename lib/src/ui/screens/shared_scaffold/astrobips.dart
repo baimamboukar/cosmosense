@@ -1,4 +1,3 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cosmosense/src/state/riverpods/apod_riverpod.dart';
 import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
@@ -34,6 +33,9 @@ class NasaImage extends ConsumerWidget {
                         style: Styles.title().copyWith(fontFamily: "Daesang"),
                       ),
                     ),
+                    const SizedBox(
+                      width: 10,
+                    ),
                     Expanded(
                       child: Image.network(
                         apodData.url ?? "image",
@@ -47,72 +49,80 @@ class NasaImage extends ConsumerWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                Text(
-                  apodData.title ?? "",
-                  style: TextStyle(
-                      fontFamily: "Varino",
-                      color: Palette.secondary,
-                      fontSize: 22),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Text(
+                    apodData.title ?? "",
+                    style: TextStyle(
+                        fontFamily: "Varino",
+                        color: Palette.secondary,
+                        fontSize: 22),
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Builder(
-                  builder: (context) {
-                    final dateString =
-                        DateParser.parse(apodData.date ?? "2020-10-07");
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Builder(
+                    builder: (context) {
+                      final dateString =
+                          DateParser.parse(apodData.date ?? "2020-10-07");
 
-                    return Text(
-                      dateString.toString(),
-                      style: const TextStyle(
-                          fontSize: 22, fontWeight: FontWeight.bold),
-                    );
-                  },
+                      return Text(
+                        dateString.toString(),
+                        style: const TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.bold),
+                      );
+                    },
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      apodData.explanation ?? "",
-                      textStyle: const TextStyle(
-                        fontSize: 14.0,
-                      ),
-                      speed: const Duration(milliseconds: 10),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: SelectableText(
+                    apodData.explanation ?? "",
+                    style: const TextStyle(
+                      fontSize: 14.0,
                     ),
-                  ],
-                  repeatForever: false,
-                  displayFullTextOnTap: true,
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: const [
-                    Text(
-                      "copyrights",
-                      style: TextStyle(
-                        fontSize: 12,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Text(
+                        "copyrights",
+                        style: TextStyle(
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                    Icon(
-                      Icons.copyright,
-                      size: 14,
-                    ),
-                  ],
+                      Icon(
+                        Icons.copyright,
+                        size: 14,
+                      ),
+                    ],
+                  ),
                 ),
                 const SizedBox(
                   height: 8,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(apodData.copyright ?? "",
-                        style: Styles.title()
-                            .copyWith(fontFamily: "Daesang", fontSize: 10)),
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Text(apodData.copyright ?? "",
+                          style: Styles.title()
+                              .copyWith(fontFamily: "Daesang", fontSize: 10)),
+                    ],
+                  ),
                 )
               ],
             );
