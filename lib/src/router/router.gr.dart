@@ -34,8 +34,8 @@ class AppRouter extends _i3.RootStackRouter {
       return _i3.AdaptivePage<dynamic>(
         routeData: routeData,
         child: _i2.LaunchDetails(
-          launch: args.launch,
           key: args.key,
+          launch: args.launch,
         ),
       );
     },
@@ -43,12 +43,6 @@ class AppRouter extends _i3.RootStackRouter {
       return _i3.AdaptivePage<dynamic>(
         routeData: routeData,
         child: const _i2.Login(),
-      );
-    },
-    Signin.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.Signin(),
       );
     },
     Welcome.name: (routeData) {
@@ -120,10 +114,6 @@ class AppRouter extends _i3.RootStackRouter {
           path: '/login',
         ),
         _i3.RouteConfig(
-          Signin.name,
-          path: '/signin',
-        ),
-        _i3.RouteConfig(
           Welcome.name,
           path: '/welcome',
         ),
@@ -147,14 +137,14 @@ class Home extends _i3.PageRouteInfo<void> {
 /// [_i2.LaunchDetails]
 class LaunchDetails extends _i3.PageRouteInfo<LaunchDetailsArgs> {
   LaunchDetails({
-    required _i5.SpaceXlaunch launch,
     _i4.Key? key,
+    required _i5.SpaceXlaunch launch,
   }) : super(
           LaunchDetails.name,
           path: '/launch-details',
           args: LaunchDetailsArgs(
-            launch: launch,
             key: key,
+            launch: launch,
           ),
         );
 
@@ -163,17 +153,17 @@ class LaunchDetails extends _i3.PageRouteInfo<LaunchDetailsArgs> {
 
 class LaunchDetailsArgs {
   const LaunchDetailsArgs({
-    required this.launch,
     this.key,
+    required this.launch,
   });
-
-  final _i5.SpaceXlaunch launch;
 
   final _i4.Key? key;
 
+  final _i5.SpaceXlaunch launch;
+
   @override
   String toString() {
-    return 'LaunchDetailsArgs{launch: $launch, key: $key}';
+    return 'LaunchDetailsArgs{key: $key, launch: $launch}';
   }
 }
 
@@ -187,18 +177,6 @@ class Login extends _i3.PageRouteInfo<void> {
         );
 
   static const String name = 'Login';
-}
-
-/// generated route for
-/// [_i2.Signin]
-class Signin extends _i3.PageRouteInfo<void> {
-  const Signin()
-      : super(
-          Signin.name,
-          path: '/signin',
-        );
-
-  static const String name = 'Signin';
 }
 
 /// generated route for
