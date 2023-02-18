@@ -1,23 +1,72 @@
-# COSMOSENSE 
-Explore the cosmos and stay passionate!
-
 ![comso](https://user-images.githubusercontent.com/49169158/213964516-81a65521-df57-412b-bd65-cebb3ebb07bf.png)
 
-Welcome to cosmosense! This application is designed to educate and inspire users about the mysteries and beauty of outer space. With this app, users can explore and learn about the solar system, galaxies, and other celestial bodies in an interactive and immersive way, it updates users daily with the NASA astronomic picture of the day and help user stays synched with different spaceX's space missions.
+![Built with Flutter](https://img.shields.io/badge/Built%20with-Flutter-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![NASA](https://img.shields.io/badge/NASA-Official-brightgreen)
+![SpaceX](https://img.shields.io/badge/SpaceX-Fan-blue)
+![GitHub forks](https://img.shields.io/github/forks/baimamboukar/cosmosense?style=social)
+![GitHub stars](https://img.shields.io/github/stars/baimamboukar/cosmosense?style=social)
+
+#### Explore the cosmos and stay passionate!
+
+**This application is designed to educate and inspire users about the mysteries and beauty of outer space. With this app, users can explore and learn about the solar system, galaxies, and other celestial bodies in an interactive and immersive way, it updates users daily with the NASA astronomic picture of the day and help user stays synched with different spaceX's space missions**
+
+### APIs
+Cosmosense uses the following APIs
+  - [NASA's Astronomy Picture of the Day API](https://api.nasa.gov/) 
+  - [SpaceX's API](https://docs.spacexdata.com/?version=latest) 
+
+  - [Space Weather API](https://api.nasa.gov/)
+---
+## Features
+
+- Explore and learn about the solar system.
+
+- Daily update feature with NASA's Astronomy Picture of the Day, which includes stunning space images and information about celestial bodies.
 
 
+- Updates on the latest SpaceX's space missions launches and mission objectives.
 
-# features of cosmosense
+- Space Weather feature
 
- - One of the most exciting features of our app is the 3D Solar System. With this feature, users can explore the solar system, including the planets and their moons. Users can also view information about each planet and zoom in for a closer look. 
+--- 
+## Contributing
 
- - Cosmosense app also offers a daily update feature, via push notifications which provides users with NASA's Astronomy Picture of the Day. This feature allows users to view stunning images of space and learn more about the featured celestial body. Additionally, users can also stay up-to-date with the latest space-related news and events with cosmosense's in-app news feed.
+When contributing to cosmosense, please follow these guidelines
 
- - **SpaceX** enthusiasts will also appreciate cosmosense app's feature that provides updates on the latest SpaceX space mission launches. Users can view the rocket's flight information, see the rocket's status, and learn more about the mission's objectives.
+- Make sure your code is well-documented and easy to understand.
 
- - Another feature that the app includes is space weather. Users can view space weather updates and alerts, including information about solar flares and geomagnetic storms. This feature can be especially useful for astronomers and photographers who need to plan their observations and captures accordingly.
+- Write clean, readable, and maintainable code.
+Follow the project's coding style and conventions.
 
- ###  Cosmosense will be soon available for download on the Google Play Store and the Apple App Store. 
- <hr/>
+- Test your changes thoroughly before submitting a pull request.
 
- **Download the app today and discover the infinite beauty and mysteries of space!**
+- Make sure your changes do not break existing functionality.
+
+- Be respectful and constructive when providing feedback on others' contributions.
+
+- If you have any questions or need further assistance, please contact the maintainers at 
+[![Email](https://img.shields.io/badge/Contact-email-red)](mailto:baimamboukar@gmail.com)
+
+We appreciate your contributions and look forward to working with you!
+---
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+## Contributors
+
+[![](https://contrib.rocks/image?repo=baimamboukar/cosmosense)](https://github.com/baimamboukar/cosmosense/graphs/contributors)
+
+---
+
+## Acknowledgments
+
+
+---
+<!-- ## Proudly featured on
+
+[![Flutter Awesome](https://img.shields.io/badge/Flutter-Awesome-blue)](https://flutterawesome.com/)
+[![Flutter Awesome](https://img.shields.io/badge/Flutter-Gallery-blue)](https://flutterawesome.com/)
+[![Flutter Awesome](https://img.shields.io/badge/GoogleDev-Library-red)](https://flutterawesome.com/) -->
