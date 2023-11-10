@@ -133,8 +133,8 @@ class LaunchDetails extends ConsumerWidget {
                               const SizedBox(
                                 height: 4,
                               ),
-                              Row(
-                                children: const [
+                              const Row(
+                                children: [
                                   Text(
                                     "Launched by SpaceX",
                                     style: TextStyle(
@@ -144,7 +144,7 @@ class LaunchDetails extends ConsumerWidget {
                                   SizedBox(
                                     width: 4,
                                   ),
-                                  Badge(
+                                  Indicator(
                                     success: true,
                                   )
                                 ],

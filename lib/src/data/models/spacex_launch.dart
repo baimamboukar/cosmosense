@@ -160,7 +160,7 @@ class Failures {
   final dynamic altitude;
   final String? reason;
   const Failures({this.time, this.altitude, this.reason});
-  Failures copyWith({int? time, dynamic? altitude, String? reason}) {
+  Failures copyWith({int? time, dynamic altitude, String? reason}) {
     return Failures(
         time: time ?? this.time,
         altitude: altitude ?? this.altitude,

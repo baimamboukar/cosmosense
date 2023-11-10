@@ -7,7 +7,7 @@ final darkTheme = ThemeData(
   useMaterial3: true,
   textTheme: GoogleFonts.exoTextTheme(
     const TextTheme(
-      bodyText1: TextStyle(color: Colors.white, fontFamily: "Exo"),
+      bodyLarge: TextStyle(color: Colors.white, fontFamily: "Exo"),
     ).apply(bodyColor: Palette.white, displayColor: Palette.white),
   ),
   fontFamily: "Exo",

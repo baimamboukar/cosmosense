@@ -1,9 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:circle_wheel_scroll/circle_wheel_scroll_view.dart' as wheel;
 import 'package:cosmosense/src/data/models/planet.dart';
 import 'package:cosmosense/src/ui/screens/screens.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:flutter/material.dart';
-
-import 'package:circle_wheel_scroll/circle_wheel_scroll_view.dart' as wheel;
 
 class CircularListPage extends StatefulWidget {
   const CircularListPage({super.key});
