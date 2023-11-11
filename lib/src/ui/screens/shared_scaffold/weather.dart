@@ -167,13 +167,13 @@ class WeatherInfoBox extends StatelessWidget {
   final Color color;
   final int index;
   const WeatherInfoBox({
-    Key? key,
+    super.key,
     required this.data,
     required this.label,
     required this.iconPath,
     required this.color,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
