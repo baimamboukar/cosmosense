@@ -11,6 +11,7 @@
 import 'package:auto_route/auto_route.dart' as _i9;
 import 'package:cosmosense/main.dart' as _i3;
 import 'package:cosmosense/src/data/models/spacex_launch.dart' as _i11;
+import 'package:cosmosense/src/ui/home.dart' as _i12;
 import 'package:cosmosense/src/ui/screens/authentication/login.dart' as _i5;
 import 'package:cosmosense/src/ui/screens/launch_details.dart' as _i4;
 import 'package:cosmosense/src/ui/screens/shared_scaffold/astrobips.dart'
@@ -42,7 +43,10 @@ abstract class $AppRouter extends _i9.RootStackRouter {
     Home.name: (routeData) {
       return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.Home(),
+
+        // ...
+
+        child: const _i12.Home(),
       );
     },
     LaunchDetails.name: (routeData) {
