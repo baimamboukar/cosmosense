@@ -314,9 +314,9 @@ class LaunchDetails extends ConsumerWidget {
 class BottomWidget extends StatelessWidget {
   final SpaceXlaunch launch;
   const BottomWidget({
-    Key? key,
+    super.key,
     required this.launch,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -365,9 +365,9 @@ class BottomWidget extends StatelessWidget {
 class HeaderWidget extends StatelessWidget {
   final SpaceXlaunch launch;
   const HeaderWidget({
-    Key? key,
+    super.key,
     required this.launch,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
