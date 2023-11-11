@@ -11,9 +11,14 @@ class Exploration extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final launches = ref.watch(spaceXlaunchesProvider);
+    final launches = ref.watch(spaceXLaunchesProvider);
     return SafeArea(
-      child: launches.when(
+      child: launches.maybeWhen(
+        orElse: () {
+          return const Center(
+            child: CupertinoActivityIndicator(),
+          );
+        },
         loading: () {
           return const Center(
             child: CupertinoActivityIndicator(),

@@ -97,3 +97,9 @@ flutter:
        - asset: assets/fonts/spacespeed.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+
+flutter_assets:
+  assets_path: assets/
+  output_path: lib/app/generated/
+  filename: cosmosense_assets.dart
