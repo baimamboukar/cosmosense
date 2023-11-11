@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/router/router.gr.dart' as routes;
-import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:line_icons/line_icons.dart';
@@ -17,6 +16,36 @@ class Home extends ConsumerStatefulWidget {
 class _HomeState extends ConsumerState<Home> {
   @override
   Widget build(BuildContext context) {
+    final navigationDestinations = [
+      const NavigationDestination(
+        icon: Icon(
+          LineIcons.globe,
+          size: 22,
+        ),
+        label: "cosmos",
+      ),
+      const NavigationDestination(
+        icon: Icon(
+          LineIcons.userAstronaut,
+          size: 22,
+        ),
+        label: "astrobips",
+      ),
+      const NavigationDestination(
+        icon: Icon(
+          LineIcons.rocket,
+          size: 22,
+        ),
+        label: "launches",
+      ),
+      const NavigationDestination(
+        icon: Icon(
+          Icons.sunny_snowing,
+          size: 22,
+        ),
+        label: "weather",
+      ),
+    ];
     return AutoTabsScaffold(
       scaffoldKey: _key,
       routes: const [
@@ -30,48 +59,9 @@ class _HomeState extends ConsumerState<Home> {
         child: child,
       ),
       bottomNavigationBuilder: (context, router) {
-        return BottomNavigationBar(
-          elevation: 20,
-          backgroundColor: Palette.scaffold,
-          selectedItemColor: Palette.secondary,
-          unselectedItemColor: Palette.secondary.withOpacity(.8),
-          currentIndex: router.activeIndex,
-          onTap: (index) => router.setActiveIndex(index),
-          type: BottomNavigationBarType.fixed,
-          items: [
-            BottomNavigationBarItem(
-              icon: const Icon(
-                LineIcons.globe,
-                size: 22,
-              ),
-              backgroundColor: Palette.primary,
-              label: "cosmos",
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
-                LineIcons.userAstronaut,
-                size: 22,
-              ),
-              backgroundColor: Palette.primary,
-              label: "astrobips",
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
-                LineIcons.rocket,
-                size: 22,
-              ),
-              backgroundColor: Palette.primary,
-              label: "launches",
-            ),
-            BottomNavigationBarItem(
-              icon: const Icon(
-                Icons.sunny_snowing,
-                size: 22,
-              ),
-              backgroundColor: Palette.primary,
-              label: "weather",
-            ),
-          ],
+        return NavigationBar(
+          onDestinationSelected: (index) => router.setActiveIndex(index),
+          destinations: navigationDestinations,
         );
       },
     );
