@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouterGenerator
+// routerGenerator
 // **************************************************************************
 
 // ignore_for_file: type=lint
