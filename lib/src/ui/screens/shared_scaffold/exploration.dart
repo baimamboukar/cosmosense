@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/state/riverpods/launches_riverpod.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -12,7 +11,7 @@ class Exploration extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final launches = ref.watch(spaceXlaunchesRiverpod);
+    final launches = ref.watch(spaceXlaunchesProvider);
     return SafeArea(
       child: launches.when(
         loading: () {

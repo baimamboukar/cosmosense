@@ -13,7 +13,7 @@ class NasaImage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final apod = ref.watch(apodRiverpod);
+    final apod = ref.watch(astronomicPicturesProvider);
     return SafeArea(
       child: SingleChildScrollView(
         child: apod.when(

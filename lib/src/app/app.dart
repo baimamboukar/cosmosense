@@ -10,8 +10,9 @@ Future<void> bootstrap({required VoidCallback runner}) async {
   await CosmosenseRunner.preRunAction();
   runZonedGuarded(
     runner,
-    (object, trace) {
-      /// Save to Firebase CrashLytics
+    (object, trace) async {
+      /// Save to Firebase CrashLytics ///
+      /// Save to Sentry ///
     },
   );
   await CosmosenseRunner.postRunAction();
