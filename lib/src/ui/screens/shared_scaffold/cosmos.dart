@@ -147,9 +147,9 @@ class Cosmos extends ConsumerWidget {
 class PlanetView extends StatelessWidget {
   final Planet planet;
   const PlanetView({
-    Key? key,
+    super.key,
     required this.planet,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
