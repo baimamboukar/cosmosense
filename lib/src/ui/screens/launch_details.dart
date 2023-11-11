@@ -73,6 +73,7 @@
 //   }
 // }
 
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
 import 'package:cosmosense/src/state/riverpods/rocket_riverpod.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
@@ -84,6 +85,7 @@ import 'package:iconly/iconly.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+@RoutePage()
 class LaunchDetails extends ConsumerWidget {
   final SpaceXlaunch launch;
 

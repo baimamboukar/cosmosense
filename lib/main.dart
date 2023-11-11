@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:cosmosense/src/router/router.dart';
 import 'package:cosmosense/src/router/router.gr.dart' as routes;
-import 'package:cosmosense/src/router/router.gr.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/theme/dark_theme.dart';
 import 'package:flutter/material.dart';
@@ -101,6 +101,7 @@ class _CosmoSenseState extends ConsumerState<CosmoSense> {
 
 final _key = GlobalKey<ScaffoldState>();
 
+@RoutePage()
 class Home extends ConsumerStatefulWidget {
   const Home({super.key});
   @override
@@ -118,7 +119,7 @@ class _HomeState extends ConsumerState<Home> {
         routes.Exploration(),
         routes.Weather(),
       ],
-      builder: (context, child, animation) => ScaleTransition(
+      transitionBuilder: (context, child, animation) => ScaleTransition(
         scale: animation,
         child: child,
       ),

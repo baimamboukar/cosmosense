@@ -1,154 +1,149 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i3;
-import 'package:cosmosense/main.dart' as _i1;
-import 'package:cosmosense/src/data/models/spacex_launch.dart' as _i5;
-import 'package:cosmosense/src/ui/screens/screens.dart' as _i2;
-import 'package:flutter/material.dart' as _i4;
+import 'package:auto_route/auto_route.dart' as _i9;
+import 'package:cosmosense/main.dart' as _i3;
+import 'package:cosmosense/src/data/models/spacex_launch.dart' as _i11;
+import 'package:cosmosense/src/ui/screens/authentication/login.dart' as _i5;
+import 'package:cosmosense/src/ui/screens/launch_details.dart' as _i4;
+import 'package:cosmosense/src/ui/screens/shared_scaffold/astrobips.dart'
+    as _i6;
+import 'package:cosmosense/src/ui/screens/shared_scaffold/cosmos.dart' as _i1;
+import 'package:cosmosense/src/ui/screens/shared_scaffold/exploration.dart'
+    as _i2;
+import 'package:cosmosense/src/ui/screens/shared_scaffold/weather.dart' as _i7;
+import 'package:cosmosense/src/ui/screens/welcome.dart' as _i8;
+import 'package:flutter/cupertino.dart' as _i10;
 
-class AppRouter extends _i3.RootStackRouter {
-  AppRouter([_i4.GlobalKey<_i4.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class $AppRouter extends _i9.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
-  final Map<String, _i3.PageFactory> pagesMap = {
-    Home.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+  final Map<String, _i9.PageFactory> pagesMap = {
+    Cosmos.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.Home(),
+        child: const _i1.Cosmos(),
+      );
+    },
+    Exploration.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i2.Exploration(),
+      );
+    },
+    Home.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.Home(),
       );
     },
     LaunchDetails.name: (routeData) {
       final args = routeData.argsAs<LaunchDetailsArgs>();
-      return _i3.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.LaunchDetails(
+        child: _i4.LaunchDetails(
           key: args.key,
           launch: args.launch,
         ),
       );
     },
     Login.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.Login(),
-      );
-    },
-    Welcome.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.Welcome(),
-      );
-    },
-    Cosmos.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.Cosmos(),
+        child: const _i5.Login(),
       );
     },
     NasaImage.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.NasaImage(),
-      );
-    },
-    Exploration.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const _i2.Exploration(),
+        child: const _i6.NasaImage(),
       );
     },
     Weather.name: (routeData) {
-      return _i3.AdaptivePage<dynamic>(
+      return _i9.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i2.Weather(),
+        child: const _i7.Weather(),
+      );
+    },
+    Welcome.name: (routeData) {
+      return _i9.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i8.Welcome(),
       );
     },
   };
-
-  @override
-  List<_i3.RouteConfig> get routes => [
-        _i3.RouteConfig(
-          Home.name,
-          path: '/',
-          children: [
-            _i3.RouteConfig(
-              Cosmos.name,
-              path: 'cosmos',
-              parent: Home.name,
-            ),
-            _i3.RouteConfig(
-              NasaImage.name,
-              path: 'image-of-the-day',
-              parent: Home.name,
-            ),
-            _i3.RouteConfig(
-              Exploration.name,
-              path: 'exploration',
-              parent: Home.name,
-            ),
-            _i3.RouteConfig(
-              Weather.name,
-              path: 'space-weather',
-              parent: Home.name,
-            ),
-          ],
-        ),
-        _i3.RouteConfig(
-          LaunchDetails.name,
-          path: '/launch-details',
-        ),
-        _i3.RouteConfig(
-          Login.name,
-          path: '/login',
-        ),
-        _i3.RouteConfig(
-          Welcome.name,
-          path: '/welcome',
-        ),
-      ];
 }
 
 /// generated route for
-/// [_i1.Home]
-class Home extends _i3.PageRouteInfo<void> {
-  const Home({List<_i3.PageRouteInfo>? children})
+/// [_i1.Cosmos]
+class Cosmos extends _i9.PageRouteInfo<void> {
+  const Cosmos({List<_i9.PageRouteInfo>? children})
+      : super(
+          Cosmos.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Cosmos';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.Exploration]
+class Exploration extends _i9.PageRouteInfo<void> {
+  const Exploration({List<_i9.PageRouteInfo>? children})
+      : super(
+          Exploration.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Exploration';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i3.Home]
+class Home extends _i9.PageRouteInfo<void> {
+  const Home({List<_i9.PageRouteInfo>? children})
       : super(
           Home.name,
-          path: '/',
           initialChildren: children,
         );
 
   static const String name = 'Home';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.LaunchDetails]
-class LaunchDetails extends _i3.PageRouteInfo<LaunchDetailsArgs> {
+/// [_i4.LaunchDetails]
+class LaunchDetails extends _i9.PageRouteInfo<LaunchDetailsArgs> {
   LaunchDetails({
-    _i4.Key? key,
-    required _i5.SpaceXlaunch launch,
+    _i10.Key? key,
+    required _i11.SpaceXlaunch launch,
+    List<_i9.PageRouteInfo>? children,
   }) : super(
           LaunchDetails.name,
-          path: '/launch-details',
           args: LaunchDetailsArgs(
             key: key,
             launch: launch,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'LaunchDetails';
+
+  static const _i9.PageInfo<LaunchDetailsArgs> page =
+      _i9.PageInfo<LaunchDetailsArgs>(name);
 }
 
 class LaunchDetailsArgs {
@@ -157,9 +152,9 @@ class LaunchDetailsArgs {
     required this.launch,
   });
 
-  final _i4.Key? key;
+  final _i10.Key? key;
 
-  final _i5.SpaceXlaunch launch;
+  final _i11.SpaceXlaunch launch;
 
   @override
   String toString() {
@@ -168,73 +163,57 @@ class LaunchDetailsArgs {
 }
 
 /// generated route for
-/// [_i2.Login]
-class Login extends _i3.PageRouteInfo<void> {
-  const Login()
+/// [_i5.Login]
+class Login extends _i9.PageRouteInfo<void> {
+  const Login({List<_i9.PageRouteInfo>? children})
       : super(
           Login.name,
-          path: '/login',
+          initialChildren: children,
         );
 
   static const String name = 'Login';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.Welcome]
-class Welcome extends _i3.PageRouteInfo<void> {
-  const Welcome()
-      : super(
-          Welcome.name,
-          path: '/welcome',
-        );
-
-  static const String name = 'Welcome';
-}
-
-/// generated route for
-/// [_i2.Cosmos]
-class Cosmos extends _i3.PageRouteInfo<void> {
-  const Cosmos()
-      : super(
-          Cosmos.name,
-          path: 'cosmos',
-        );
-
-  static const String name = 'Cosmos';
-}
-
-/// generated route for
-/// [_i2.NasaImage]
-class NasaImage extends _i3.PageRouteInfo<void> {
-  const NasaImage()
+/// [_i6.NasaImage]
+class NasaImage extends _i9.PageRouteInfo<void> {
+  const NasaImage({List<_i9.PageRouteInfo>? children})
       : super(
           NasaImage.name,
-          path: 'image-of-the-day',
+          initialChildren: children,
         );
 
   static const String name = 'NasaImage';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i2.Exploration]
-class Exploration extends _i3.PageRouteInfo<void> {
-  const Exploration()
-      : super(
-          Exploration.name,
-          path: 'exploration',
-        );
-
-  static const String name = 'Exploration';
-}
-
-/// generated route for
-/// [_i2.Weather]
-class Weather extends _i3.PageRouteInfo<void> {
-  const Weather()
+/// [_i7.Weather]
+class Weather extends _i9.PageRouteInfo<void> {
+  const Weather({List<_i9.PageRouteInfo>? children})
       : super(
           Weather.name,
-          path: 'space-weather',
+          initialChildren: children,
         );
 
   static const String name = 'Weather';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i8.Welcome]
+class Welcome extends _i9.PageRouteInfo<void> {
+  const Welcome({List<_i9.PageRouteInfo>? children})
+      : super(
+          Welcome.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'Welcome';
+
+  static const _i9.PageInfo<void> page = _i9.PageInfo<void>(name);
 }

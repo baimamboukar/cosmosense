@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/state/riverpods/apod_riverpod.dart';
 import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
@@ -6,6 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+@RoutePage()
 class NasaImage extends ConsumerWidget {
   const NasaImage({super.key});
 
