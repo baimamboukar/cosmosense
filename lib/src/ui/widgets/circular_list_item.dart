@@ -7,8 +7,7 @@ class CircleListItem extends StatelessWidget {
   final Planet character;
 
   const CircleListItem(
-      {Key? key, required this.resizeFactor, required this.character})
-      : super(key: key);
+      {super.key, required this.resizeFactor, required this.character});
 
   @override
   Widget build(BuildContext context) {
