@@ -44,6 +44,7 @@ dependencies:
   freezed_annotation: ^2.4.1
   freezed: ^2.4.5
   riverpod_annotation: ^2.3.0
+  heroicons: ^0.9.0
  # youtube_player_flutter: ^8.1.2
 
 dev_dependencies:

@@ -87,7 +87,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                         );
                       },
                       child: Card(
-                        color: Palette.scaffold.withOpacity(.8),
+                        //color: Theme.of(context).colorScheme.ca,
                         elevation: 5.0,
                         // margin: const EdgeInsets.all(10.0),
                         shadowColor: Palette.white,
@@ -127,11 +127,11 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                           const SizedBox(
                                             width: 10,
                                           ),
-                                          // Badge(
-                                          //   success: launch.success ?? true,
-                                          // ),
                                           CosmosenseBadge(
-                                              success: launch.upcoming ?? false)
+                                            success: launch.success ?? true,
+                                          ),
+                                          // Indicator(
+                                          //     success: launch.upcoming ?? false)
                                         ],
                                       ),
                                       const SizedBox(
