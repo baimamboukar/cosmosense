@@ -6,11 +6,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage()
-class Exploration extends ConsumerWidget {
+class Exploration extends ConsumerStatefulWidget {
   const Exploration({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ConsumerStatefulWidget> createState() => _ExplorationState();
+}
+
+class _ExplorationState extends ConsumerState<Exploration> {
+  @override
+  void initState() {
+    super.initState();
+    //ref.read(spaceXLaunchesProvider.notifier).getSpaceXlaunches();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final launches = ref.watch(spaceXLaunchesProvider);
     return SafeArea(
       child: launches.maybeWhen(

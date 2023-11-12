@@ -12,7 +12,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           page: Home.page,
           path: '/',
-          initial: true,
+          initial: false,
           children: [
             AutoRoute(page: Cosmos.page, path: 'cosmos'),
             AutoRoute(page: NasaImage.page, path: 'image-of-the-day'),
@@ -22,6 +22,6 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(page: LaunchDetails.page, path: '/launch-details'),
         AutoRoute(page: Login.page, path: '/login'),
-        AutoRoute(page: Welcome.page, path: '/welcome')
+        AutoRoute(page: Welcome.page, path: '/welcome', initial: true)
       ];
 }

@@ -35,13 +35,14 @@ class _CosmoSenseState extends ConsumerState<CosmoSense> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: appRouter.config(),
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
       title: "CosmoSense",
       restorationScopeId: "cosmosense",
       debugShowCheckedModeBanner: false,
       theme: CosmosenseTheme.light,
       darkTheme: CosmosenseTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
     );
   }
 }

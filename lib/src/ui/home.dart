@@ -60,6 +60,7 @@ class _HomeState extends ConsumerState<Home> {
       ),
       bottomNavigationBuilder: (context, router) {
         return NavigationBar(
+          selectedIndex: router.activeIndex,
           onDestinationSelected: (index) => router.setActiveIndex(index),
           destinations: navigationDestinations,
         );

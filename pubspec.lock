@@ -212,12 +212,11 @@ packages:
   circle_wheel_scroll:
     dependency: "direct main"
     description:
-      path: "."
-      ref: null_safety_and_endless_scrolling
-      resolved-ref: c22e01667a1bd952573d5cae087f6404ea69face
-      url: "https://github.com/KolasikOmetov/circle_wheel_scroll"
-    source: git
-    version: "0.0.1"
+      name: circle_wheel_scroll
+      sha256: fc5a06371fc82d05008f9643fb3179861b2a86b241659d052fccde71fa2c16c9
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.3"
   cli_util:
     dependency: transitive
     description:
