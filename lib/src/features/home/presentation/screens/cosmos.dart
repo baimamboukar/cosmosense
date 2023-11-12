@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/planet.dart';
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
+import 'package:cosmosense/src/features/home/presentation/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/material.dart';

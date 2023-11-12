@@ -4,8 +4,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
   await bootstrap(
-    runner: () => runApp(const ProviderScope(
-      child: CosmoSense(),
-    )),
+    runner: () => runApp(
+      const ProviderScope(
+        child: CosmoSense(),
+      ),
+    ),
   );
 }

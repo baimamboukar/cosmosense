@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
+import 'package:cosmosense/src/features/home/presentation/widgets/widgets.dart';
 import 'package:cosmosense/src/router/router.gr.dart' as routes;
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
@@ -87,7 +87,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                         );
                       },
                       child: Card(
-                        color: Palette.scaffold.withOpacity(.8),
+                        //color: Theme.of(context).colorScheme.ca,
                         elevation: 5.0,
                         // margin: const EdgeInsets.all(10.0),
                         shadowColor: Palette.white,
@@ -127,11 +127,11 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                           const SizedBox(
                                             width: 10,
                                           ),
-                                          // Badge(
-                                          //   success: launch.success ?? true,
-                                          // ),
-                                          Indicator(
-                                              success: launch.upcoming ?? false)
+                                          CosmosenseBadge(
+                                            success: launch.success ?? true,
+                                          ),
+                                          // Indicator(
+                                          //     success: launch.upcoming ?? false)
                                         ],
                                       ),
                                       const SizedBox(

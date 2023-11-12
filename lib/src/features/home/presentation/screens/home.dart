@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/router/router.gr.dart' as routes;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:line_icons/line_icons.dart';
+import 'package:heroicons/heroicons.dart';
 
 final _key = GlobalKey<ScaffoldState>();
 
@@ -18,29 +18,29 @@ class _HomeState extends ConsumerState<Home> {
   Widget build(BuildContext context) {
     final navigationDestinations = [
       const NavigationDestination(
-        icon: Icon(
-          LineIcons.globe,
+        icon: HeroIcon(
+          HeroIcons.globeEuropeAfrica,
           size: 22,
         ),
         label: "cosmos",
       ),
       const NavigationDestination(
-        icon: Icon(
-          LineIcons.userAstronaut,
+        icon: HeroIcon(
+          HeroIcons.sparkles,
           size: 22,
         ),
         label: "astrobips",
       ),
       const NavigationDestination(
-        icon: Icon(
-          LineIcons.rocket,
+        icon: HeroIcon(
+          HeroIcons.rocketLaunch,
           size: 22,
         ),
         label: "launches",
       ),
       const NavigationDestination(
-        icon: Icon(
-          Icons.sunny_snowing,
+        icon: HeroIcon(
+          HeroIcons.sun,
           size: 22,
         ),
         label: "weather",

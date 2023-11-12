@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cosmosense/src/state/riverpods/launches_riverpod.dart';
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
+import 'package:cosmosense/src/features/home/home.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

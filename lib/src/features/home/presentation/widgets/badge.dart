@@ -2,9 +2,9 @@ import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class Badge extends StatelessWidget {
+class CosmosenseBadge extends StatelessWidget {
   final bool success;
-  const Badge({super.key, required this.success});
+  const CosmosenseBadge({super.key, required this.success});
 
   @override
   Widget build(BuildContext context) {
