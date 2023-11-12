@@ -2,8 +2,8 @@
 
 import 'package:circle_wheel_scroll/circle_wheel_scroll_view.dart' as wheel;
 import 'package:cosmosense/src/data/models/planet.dart';
-import 'package:cosmosense/src/ui/screens/screens.dart';
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
+import 'package:cosmosense/src/features/home/presentation/screens/weather.dart';
+import 'package:cosmosense/src/features/home/presentation/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 class CircularListPage extends StatefulWidget {

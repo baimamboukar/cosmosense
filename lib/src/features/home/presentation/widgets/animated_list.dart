@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
+import 'package:cosmosense/src/features/home/presentation/widgets/widgets.dart';
 import 'package:cosmosense/src/router/router.gr.dart' as routes;
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/material.dart';
@@ -130,7 +130,7 @@ class _FadeAnimatedListState extends ConsumerState<FadeAnimatedList> {
                                           // Badge(
                                           //   success: launch.success ?? true,
                                           // ),
-                                          Indicator(
+                                          CosmosenseBadge(
                                               success: launch.upcoming ?? false)
                                         ],
                                       ),

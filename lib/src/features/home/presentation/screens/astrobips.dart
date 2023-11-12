@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cosmosense/src/state/riverpods/apod_riverpod.dart';
+import 'package:cosmosense/src/features/home/logic/riverpods/apod_riverpod.dart';
 import 'package:cosmosense/src/utils/date_parser.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';

@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/spacex_launch.dart';
-import 'package:cosmosense/src/state/riverpods/rocket_riverpod.dart';
-import 'package:cosmosense/src/ui/widgets/widgets.dart';
+import 'package:cosmosense/src/features/home/home.dart';
 import 'package:cosmosense/src/utils/palette.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -72,7 +71,7 @@ class LaunchDetails extends ConsumerWidget {
                                   SizedBox(
                                     width: 4,
                                   ),
-                                  Indicator(
+                                  CosmosenseBadge(
                                     success: true,
                                   )
                                 ],
