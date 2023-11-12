@@ -1,18 +1,35 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/state/riverpods/launches_riverpod.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class Exploration extends ConsumerWidget {
+@RoutePage()
+class Exploration extends ConsumerStatefulWidget {
   const Exploration({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final launches = ref.watch(spaceXlaunchesRiverpod);
+  ConsumerState<ConsumerStatefulWidget> createState() => _ExplorationState();
+}
+
+class _ExplorationState extends ConsumerState<Exploration> {
+  @override
+  void initState() {
+    super.initState();
+    //ref.read(spaceXLaunchesProvider.notifier).getSpaceXlaunches();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final launches = ref.watch(spaceXLaunchesProvider);
     return SafeArea(
-      child: launches.when(
+      child: launches.maybeWhen(
+        orElse: () {
+          return const Center(
+            child: CupertinoActivityIndicator(),
+          );
+        },
         loading: () {
           return const Center(
             child: CupertinoActivityIndicator(),

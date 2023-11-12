@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/planet.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
@@ -11,6 +12,7 @@ final activePlanetIndexRiverpod = StateProvider<int>((ref) => 0);
 ValueNotifier<String> nicknameNotifier =
     ValueNotifier<String>(planets[0].details['nickname']);
 
+@RoutePage()
 class Cosmos extends ConsumerWidget {
   const Cosmos({super.key});
 
@@ -145,9 +147,9 @@ class Cosmos extends ConsumerWidget {
 class PlanetView extends StatelessWidget {
   final Planet planet;
   const PlanetView({
-    Key? key,
+    super.key,
     required this.planet,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

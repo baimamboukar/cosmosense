@@ -1,4 +1,5 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:cosmosense/src/data/models/planet.dart';
 import 'package:cosmosense/src/ui/widgets/widgets.dart';
 import 'package:cosmosense/src/utils/palette.dart';
@@ -11,6 +12,7 @@ final colorListener = ValueNotifier<Color>(Palette.mars);
 final planetNameListener = ValueNotifier<Planet>(planets[0]);
 final planetListener = ValueNotifier<Planet>(planets[0]);
 
+@RoutePage()
 class Weather extends ConsumerWidget {
   const Weather({super.key});
 
@@ -165,13 +167,13 @@ class WeatherInfoBox extends StatelessWidget {
   final Color color;
   final int index;
   const WeatherInfoBox({
-    Key? key,
+    super.key,
     required this.data,
     required this.label,
     required this.iconPath,
     required this.color,
     required this.index,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

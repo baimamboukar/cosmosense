@@ -5,10 +5,10 @@ final dioProvider = Provider<Dio>(
   (ref) {
     return Dio(
       BaseOptions(
-        sendTimeout: 30000,
-        connectTimeout: 30000,
-        receiveTimeout: 30000,
+        connectTimeout: const Duration(seconds: 30),
         contentType: Headers.jsonContentType,
+        receiveTimeout: const Duration(milliseconds: 30000),
+        sendTimeout: const Duration(milliseconds: 30000),
         headers: {
           'Accept': 'application/json',
           'Accept-Language': 'en',

@@ -7,12 +7,12 @@ class InfoBox extends StatelessWidget {
   final IconData? icon;
   final Color? color;
   const InfoBox({
-    Key? key,
+    super.key,
     required this.label,
     required this.data,
     this.icon,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
