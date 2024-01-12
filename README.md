@@ -30,6 +30,9 @@ Cosmosense uses the following APIs
 - Space Weather feature
 
 --- 
+![Alt](https://repobeats.axiom.co/api/embed/c3cb89b848c5d93ef1acd7829b7c105ef4e81990.svg "Repobeats analytics image")
+
+---
 ## Contributing
 
 When contributing to cosmosense, please follow these guidelines
