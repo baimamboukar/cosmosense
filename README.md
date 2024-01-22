@@ -7,6 +7,8 @@
 ![GitHub forks](https://img.shields.io/github/forks/baimamboukar/cosmosense?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/baimamboukar/cosmosense?style=social)
 
+---
+
 #### Explore the cosmos and stay passionate!
 
 **This application is designed to educate and inspire users about the mysteries and beauty of outer space. With this app, users can explore and learn about the solar system, galaxies, and other celestial bodies in an interactive and immersive way, it updates users daily with the NASA astronomic picture of the day and help user stays synched with different spaceX's space missions**
@@ -27,7 +29,7 @@ Cosmosense uses the following APIs
 
 - Updates on the latest SpaceX's space missions launches and mission objectives.
 
-- Space Weather feature
+- Space Weather
 
 --- 
 ![Alt](https://repobeats.axiom.co/api/embed/c3cb89b848c5d93ef1acd7829b7c105ef4e81990.svg "Repobeats analytics image")
