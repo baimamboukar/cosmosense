@@ -9,7 +9,7 @@ class SpaceXLaunches extends _$SpaceXLaunches {
   /// Fetches SpaceX launches from the API and updates the state of the provider.
   ///
   /// Uses the [dioProvider] to make a GET request to the SpaceX API and converts the response data
-  /// to a list of [SpaceXlaunch] objects using the [SpaceXlaunch.fromJson] factory method.
+  /// to a list of [SpaceXlaunch] objects using the [SPpaceXlaunch.fromJson] factory method.
   /// The resulting list is set as the new state of the [SpaceXlaunch] provider.
   Future<void> getSpaceXlaunches() async {
     final dio = ref.watch(dioProvider);

@@ -60,6 +60,7 @@ class _HomeState extends ConsumerState<Home> {
       ),
       bottomNavigationBuilder: (context, router) {
         return NavigationBar(
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           selectedIndex: router.activeIndex,
           onDestinationSelected: (index) => router.setActiveIndex(index),
           destinations: navigationDestinations,

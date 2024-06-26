@@ -32,7 +32,7 @@ dependencies:
   google_fonts: ^6.1.0
   cached_network_image: ^3.2.3
   scroll_snap_list: ^0.9.1
-  circle_wheel_scroll: ^0.0.3
+  #circle_wheel_scroll: ^0.0.3
   animations: ^2.0.7
   animate_do: ^3.0.2
   animated_text_kit: ^4.2.2
