@@ -15,6 +15,6 @@ Future<APOD> astronomicPictures(AstronomicPicturesRef ref) async {
       'api_key': dotenv.get('NASA_API_KEY'),
     },
   );
-  debugPrint(APOD.fromJson(data.data).toString());
+  debugPrint("URLLLLL --> ${APOD.fromJson(data.data)}");
   return APOD.fromJson(data.data);
 }

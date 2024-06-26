@@ -15,6 +15,6 @@ class CosmosenseColorscheme {
         primaryKey: const Color(0xFF764AF1),
         secondaryKey: const Color(0xFFF9C54B),
         tertiaryKey: const Color(0xFF0E8BD3),
-        tones: FlexTones.vivid(Brightness.light),
+        tones: FlexTones.vivid(Brightness.dark),
       );
 }

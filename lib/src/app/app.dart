@@ -42,7 +42,7 @@ class _CosmoSenseState extends ConsumerState<CosmoSense> {
       debugShowCheckedModeBanner: false,
       theme: CosmosenseTheme.light,
       darkTheme: CosmosenseTheme.dark,
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.dark,
     );
   }
 }

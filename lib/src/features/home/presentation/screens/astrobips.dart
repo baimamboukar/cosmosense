@@ -6,6 +6,8 @@ import 'package:cosmosense/src/utils/textstyles/text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:heroicons/heroicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 @RoutePage()
 class NasaImage extends ConsumerWidget {
@@ -19,7 +21,7 @@ class NasaImage extends ConsumerWidget {
         child: apod.when(
           loading: () {
             return const Center(
-              child: CupertinoActivityIndicator(),
+              child: CupertinoActivityIndicator(radius: 28),
             );
           },
           data: (apodData) {
@@ -39,16 +41,38 @@ class NasaImage extends ConsumerWidget {
                       width: 10,
                     ),
                     Expanded(
-                      child: apodData.url != null
-                          ? Image.network(
-                              apodData.url ?? "image",
-                              loadingBuilder:
-                                  (context, child, loadingProgress) {
-                                return child;
+                        child: Container(
+                      child: Center(
+                        child: Column(
+                          children: [
+                            IconButton(
+                              icon: const HeroIcon(
+                                HeroIcons.videoCamera,
+                              ),
+                              onPressed: () async {
+                                final url = Uri.parse(apodData.url!);
+                                if (await canLaunchUrl(url)) {
+                                  await launchUrl(url);
+                                } else {
+                                  throw 'Could not launch $url';
+                                }
                               },
-                            )
-                          : const SizedBox(),
-                    ),
+                            ),
+                            const Text("Click to Launch on Youtube")
+                          ],
+                        ),
+                      ),
+                    )
+                        // child: apodData.url != null
+                        //     ? Image.network(
+                        //         apodData.url!,
+                        //         loadingBuilder:
+                        //             (context, child, loadingProgress) {
+                        //           return child;
+                        //         },
+                        //       )
+                        //     : const SizedBox(),
+                        ),
                   ],
                 ),
                 const SizedBox(
@@ -89,9 +113,7 @@ class NasaImage extends ConsumerWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: SelectableText(
                     apodData.explanation ?? "",
-                    style: const TextStyle(
-                      fontSize: 14.0,
-                    ),
+                    style: const TextStyle(fontSize: 14.0, color: Colors.white),
                   ),
                 ),
                 const SizedBox(
