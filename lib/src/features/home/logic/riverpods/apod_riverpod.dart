@@ -1,5 +1,6 @@
 import 'package:cosmosense/src/data/models/apod.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -14,5 +15,6 @@ Future<APOD> astronomicPictures(AstronomicPicturesRef ref) async {
       'api_key': dotenv.get('NASA_API_KEY'),
     },
   );
+  debugPrint(APOD.fromJson(data.data).toString());
   return APOD.fromJson(data.data);
 }

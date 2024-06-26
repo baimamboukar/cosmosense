@@ -39,12 +39,15 @@ class NasaImage extends ConsumerWidget {
                       width: 10,
                     ),
                     Expanded(
-                      child: Image.network(
-                        apodData.url ?? "image",
-                        loadingBuilder: (context, child, loadingProgress) {
-                          return child;
-                        },
-                      ),
+                      child: apodData.url != null
+                          ? Image.network(
+                              apodData.url ?? "image",
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                return child;
+                              },
+                            )
+                          : const SizedBox(),
                     ),
                   ],
                 ),
